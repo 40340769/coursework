@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+		<title>{% block title %}Base{% endblock %}</title>
+	</head>
+	<body>
+		<nav>
+			<div>
+				<div>
+					<a href="/">Home</a>
+					<a href="/about">About</a>
+					<a href="/login">Login</a>
+					<a href="/register">Register</a>
+				</div>
+			</div>
+		</nav>
+		{% with messages = get_flashed_messages(with_categories=true) %} 
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == 'error' %}
+						<div style="color:red;">
+							{{ message }}
+						</div>
+					{% else %}
+						<div style="color:green;">
+							{{ message }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<div>
+			{% block content %}Base{% endblock %}
+		</div>
+		<footer>
+			<div>
+				<div>
+					<a href="/contact">Contact us</a>
+					<a href="/privacy">Privacy</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
