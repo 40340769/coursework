@@ -7,4 +7,22 @@
 		<a href="/new-bookmark">New</a>
 	</div>
 	<h1>My Bookmarks page</h1>
+	{% for user_bookmark in user_bookmarks %}
+		<div>
+			<p>Name:</p>
+			<p>{{ user_bookmark[1] }}</p>
+			<p>URL:</p>
+			<p>{{ user_bookmark[3] }}</p>
+		</div>
+		<form method="POST">
+			<button type="submit">View</button>
+			<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
+			<input type="hidden" name="view_bookmark" value="view_bookmark" />
+		</form>
+		<form method="POST">
+			<button type="submit">Delete</button>
+			<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
+			<input type="hidden" name="delete_bookmark" value="delete_bookmark" />
+		</form>
+	{% endfor %}
 {% endblock %}
