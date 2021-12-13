@@ -10,10 +10,17 @@
 		<nav>
 			<div>
 				<div>
-					<a href="/">Home</a>
-					<a href="/about">About</a>
-					<a href="/login">Login</a>
-					<a href="/register">Register</a>
+					{% if (session['logged'] != True) %}
+						<a href="/">Home</a>
+						<a href="/about">About</a>
+						<a href="/login">Login</a>
+						<a href="/register">Register</a>
+					{% else %}
+						<a href="/">Home</a>
+						<a href="/my-bookmarks">My Bookmarks</a>
+						<a href="/account">Account</a>
+						<a href="/logout">Logout</a>
+					{% endif %}
 				</div>
 			</div>
 		</nav>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}New Bookmark{% endblock %}
+
+{% block content %}
+	<h1>New Bookmark page</h1>
+	<form method="POST">
+		<h3>New Bookmark</h3>
+		<div>
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" placeholder="Enter name" />
+		</div>
+		<div>
+			<label for="category">Category</label>
+			<input type="text" id="category" name="category" placeholder="Enter category" />
+		</div>
+		<div>
+			<label for="url">URL</label>
+			<input type="text" id="url" name="url" placeholder="Enter URL" />
+		</div>
+		<div>
+			<label for="note">Note</label>
+			<textarea name="note" id="note"></textarea>
+		</div>	
+		<button type="submit">Add</button>
+	</form>
+{% endblock %}

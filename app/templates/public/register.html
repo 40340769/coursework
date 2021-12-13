@@ -1,7 +1,31 @@
-{% extends "public/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Register{% endblock %}
 
 {% block content %}
 	<h1>Register page</h1>
+	<form method="POST">
+		<h3>Register</h3>
+		<div>
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" placeholder="Enter email" />
+		</div>
+		<div>
+			<label for="firstName">First Name</label>
+			<input type="text" id="firstName" name="firstName" placeholder="Enter first name" />
+		</div>
+		<div>
+			<label for="lastName">Last Name</label>
+			<input type="text" id="lastName" name="lastName" placeholder="Enter last name" />
+		</div>
+		<div>
+			<label for="password1">Password</label>
+			<input type="password" id="password1" name="password1" placeholder="Enter password" />
+		</div>
+		<div>
+			<label for="password2">Confirm Password</label>
+			<input type="password" id="password2" name="password2" placeholder="Confirm password" />
+		</div>		
+		<button type="submit">Register</button>
+	</form>
 {% endblock %}
