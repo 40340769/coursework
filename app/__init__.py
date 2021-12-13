@@ -58,6 +58,6 @@ def requires_login(f):
     def decorated(*args,**kwargs):
         status = session.get('logged',False)
         if not status:
-            return redirect(url_for('views_auth.login'))
+            return redirect(url_for('views_public.login'))
         return f(*args,**kwargs)
     return decorated
