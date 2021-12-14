@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Bookmark{% endblock %}
+
+{% block content %}
+	<h1>Edit Bookmark page</h1>
+	<form method="POST">
+		<h3>Edit Bookmark</h3>
+		<div>
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" value="{{ bookmark_info[0][1] }}" />
+		</div>
+		<div>
+			<label for="category">Category</label>
+			<input type="text" id="category" name="category" value="{{ bookmark_info[0][2] }}" />
+		</div>
+		<div>
+			<label for="url">URL</label>
+			<input type="text" id="url" name="url" value="{{ bookmark_info[0][3] }}" />
+		</div>
+		<div>
+			<label for="note">Note</label>
+			<textarea name="note" id="note">{{ bookmark_info[0][4] }}</textarea>
+		</div>	
+		<button type="submit">Edit</button>
+		<input type="hidden" name="hidden_bookmark_id" value="{{ bookmark_info[0][0] }}" />
+	</form>
+	<a href="/my-bookmarks">Return</a>
+{% endblock %}

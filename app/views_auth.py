@@ -39,6 +39,11 @@ def my_bookmarks():
 		session['bookmark_id'] = bookmark_id
 		return redirect(url_for('views_auth.view_bookmark'))
 
+	if request.form.get('edit_bookmark') == 'edit_bookmark':
+		bookmark_id = request.form.get('hidden_bookmark_id')
+		session['bookmark_id'] = bookmark_id
+		return redirect(url_for('views_auth.edit_bookmark'))
+
 	if request.form.get('delete_bookmark') == 'delete_bookmark':
 		bookmark_id = request.form.get('hidden_bookmark_id')
 		session['bookmark_id'] = bookmark_id
@@ -137,3 +142,46 @@ def delete_bookmark():
 	conn.close()
 
 	return render_template("auth/delete_bookmark.html", bookmark_info=bookmark_info)
+
+@views_auth.route('/edit-bookmark', methods=['GET','POST'])
+@requires_login
+def edit_bookmark():
+	if request.method == 'POST':
+		bookmark_id = request.form.get('hidden_bookmark_id')
+		bookmark_name = request.form.get('name')
+		bookmark_category = request.form.get('category')
+		bookmark_url = request.form.get('url')
+		bookmark_note = request.form.get('note')
+
+		if len(bookmark_name) < 1:
+			flash('Name of the bookmark is too short!', category='error')
+		elif len(bookmark_category) < 1:
+			flash('Category of the bookmark is too short!', category='error')
+		elif len(bookmark_url) < 1:
+			flash('URL of the bookmark is too short!', category='error')
+		elif len(bookmark_note) < 1:
+			flash('Note for the bookmark is too short!', category='error')
+		else:
+			# Update bookmark in the database
+			conn = sqlite3.connect(db_location)
+			cursor = conn.cursor()
+			query_bookmark = "UPDATE bookmarks SET name=?,category=?,url=?,notes=? WHERE bookmark_id=?"
+			cursor.execute(query_bookmark,(bookmark_name,bookmark_category,bookmark_url,bookmark_note,bookmark_id))
+			conn.commit()
+			conn.close()
+			flash('Bookmark updated!', category='success')
+			return redirect(url_for('views_auth.my_bookmarks'))
+
+		session['bookmark_id'] = bookmark_id
+		return redirect(url_for('views_auth.edit_bookmark'))
+
+	bookmark_id = session['bookmark_id']
+	session.pop('bookmark_id',None)
+	conn = sqlite3.connect(db_location)
+	cursor = conn.cursor()
+	query_bookmark = "SELECT * FROM bookmarks WHERE bookmark_id=?"
+	cursor.execute(query_bookmark,(bookmark_id,))
+	bookmark_info = cursor.fetchall()
+	conn.close()
+
+	return render_template("auth/edit_bookmark.html", bookmark_info=bookmark_info)
