@@ -29,10 +29,30 @@ def my_bookmarks():
 		user_id = user_info[0][0]
 	user_id = session['user_id']
 
-	query_bookmarks = "SELECT * FROM bookmarks WHERE user_id=?"
-	cursor.execute(query_bookmarks,(user_id,))
-	user_bookmarks = cursor.fetchall()
-	conn.close()
+	if request.form.get('search_bookmark') == 'search_bookmark':
+		search_term = request.form.get('search_term')
+		conn = sqlite3.connect(db_location)
+		cursor = conn.cursor()
+		query_search = "SELECT * FROM bookmarks WHERE ((name LIKE ?) OR (category LIKE ?) OR (url LIKE ?) OR (notes LIKE ?)) AND user_id=? ORDER BY name";
+		cursor.execute(query_search,(f"%{search_term}%",f"%{search_term}%",f"%{search_term}%",f"%{search_term}%",user_id))
+		user_bookmarks_search = cursor.fetchall()
+		conn.close()
+		if user_bookmarks_search == []:
+			user_bookmarks = user_bookmarks_search
+			flash('Sorry, no specified bookmarks found. Please try again.', category='search_error')
+		else:
+			user_bookmarks = user_bookmarks_search
+			flash('Result for: "' + search_term + '"', category='search_success')
+	elif request.form.get('show_all_bookmarks') == 'show_all_bookmarks':
+		query_bookmarks = "SELECT * FROM bookmarks WHERE user_id=? ORDER BY name"
+		cursor.execute(query_bookmarks,(user_id,))
+		user_bookmarks = cursor.fetchall()
+		conn.close()
+	else:
+		query_bookmarks = "SELECT * FROM bookmarks WHERE user_id=? ORDER BY name"
+		cursor.execute(query_bookmarks,(user_id,))
+		user_bookmarks = cursor.fetchall()
+		conn.close()
 
 	if request.form.get('view_bookmark') == 'view_bookmark':
 		bookmark_id = request.form.get('hidden_bookmark_id')
