@@ -4,4 +4,24 @@
 
 {% block content %}
 	<h1>Contact page</h1>
+	<form method="POST">
+		<h3>Contact us</h3>
+		<div>
+			<label for="firstName">First Name</label>
+			<input type="text" id="firstName" name="firstName" placeholder="Enter first name" />
+		</div>
+		<div>
+			<label for="lastName">Last Name</label>
+			<input type="text" id="lastName" name="lastName" placeholder="Enter last name" />
+		</div>
+		<div>
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" placeholder="Enter email" />
+		</div>
+		<div>
+			<label for="message">Message</label>
+			<textarea name="message" id="message" placeholder="Enter message"></textarea>
+		</div>	
+		<button type="submit">Send</button>
+	</form>
 {% endblock %}

@@ -2,6 +2,10 @@ from flask import Blueprint, render_template, flash, request, session, redirect,
 from . import requires_login
 import sqlite3
 import bcrypt
+import smtplib
+from email.message import EmailMessage
+from email.utils import make_msgid
+import mimetypes
 
 db_location = 'app/var/strainer.db'
 views_public = Blueprint('views_public', __name__)
@@ -95,6 +99,73 @@ def register():
 
 @views_public.route('/contact', methods=['GET','POST'])
 def contact():
+	# Send button has been clicked
+	if request.method == 'POST':
+		first_name = request.form.get('firstName')
+		last_name = request.form.get('lastName')
+		email = request.form.get('email')
+		message = request.form.get('message')
+		# Checks if data has enough length
+		if len(first_name) < 2:
+			flash('First name must be greater than 1 character.', category='error')
+		elif len(last_name) < 2:
+			flash('Last name must be greater than 1 character.', category='error') 
+		elif len(email) < 4:
+			flash('Email must be greater than 3 characters.', category='error')
+		elif len(message) < 2:
+			flash('Message must be greater than 1 character.', category='error')
+		else:
+			# Message to the user
+			msg_user = EmailMessage()
+			msg_user['Subject'] = "Contact message - Strainer"
+			msg_user['From'] = "contact.strainer.now@gmail.com"
+			msg_user['To'] = email
+			msg_user.set_content('Thank you for sending us a message. We will respond within 24 hours. Strainer Team.')
+			image_cid = make_msgid()
+			msg_user.add_alternative("""<!DOCTYPE html>
+				<html>
+					<body>
+						<p>Thank you for sending us a message.</p>
+						<p>We will respond within 24 hours.</p>
+						<p><b>Strainer Team</b></p>
+						<p><img src=\"cid:{image_cid}\" width="100" height="100"></p>
+					</body>
+				</html>
+				""".format(image_cid=image_cid[1:-1]), subtype='html')
+
+			with open('app/static/images/logo.png', 'rb') as img:
+				maintype, subtype = mimetypes.guess_type(img.name)[0].split('/')
+				msg_user.get_payload()[1].add_related(img.read(), maintype=maintype, subtype=subtype, cid=image_cid)
+
+			with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp_user:
+				smtp_user.login("contact.strainer.now@gmail.com","strainer123")
+				smtp_user.send_message(msg_user)
+
+			# Message to Strainer
+			msg_strainer = EmailMessage()
+			msg_strainer['Subject'] = "Contact message - Strainer"
+			msg_strainer['From'] = "contact.strainer.now@gmail.com"
+			msg_strainer['To'] = "contact.strainer.main@gmail.com"
+			msg_strainer.set_content('You have received the following message from the Strainer user: \nUser: ' + first_name + ' ' + last_name + '\nEmail: ' + email + '\nMessage: ' + message)
+			msg_strainer.add_alternative("""<!DOCTYPE html>
+				<html>
+					<body>
+						<p>You have received the following message from the Strainer user:</p>
+						<p>User: """ + first_name + " " + last_name + """</p>
+						<p>Email: """ + email + """</p>
+						<p>Message: """ + message + """</p>
+					</body>
+				</html>
+				""", subtype='html')
+
+			with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp_strainer:
+				smtp_strainer.login("contact.strainer.now@gmail.com","strainer123")
+				smtp_strainer.send_message(msg_strainer)
+
+			flash('Your message has been successfully sent!', category='success')
+			return redirect(url_for('views_public.contact'))
+	
+	# Display empty Contact form
 	return render_template("public/contact.html")
 
 @views_public.route('/privacy', methods=['GET','POST'])
