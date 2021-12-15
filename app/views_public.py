@@ -125,15 +125,17 @@ def contact():
 			msg_user.add_alternative("""<!DOCTYPE html>
 				<html>
 					<body>
+						<p>Hello """ + first_name + """,</p>
 						<p>Thank you for sending us a message.</p>
 						<p>We will respond within 24 hours.</p>
 						<p><b>Strainer Team</b></p>
-						<p><img src=\"cid:{image_cid}\" width="100" height="100"></p>
+						<br />
+						<p style="text-align:center"><img src=\"cid:{image_cid}\" width="100" height="auto" /></p>
 					</body>
 				</html>
 				""".format(image_cid=image_cid[1:-1]), subtype='html')
 
-			with open('app/static/images/logo.png', 'rb') as img:
+			with open('app/static/images/logo_email.png', 'rb') as img:
 				maintype, subtype = mimetypes.guess_type(img.name)[0].split('/')
 				msg_user.get_payload()[1].add_related(img.read(), maintype=maintype, subtype=subtype, cid=image_cid)
 
