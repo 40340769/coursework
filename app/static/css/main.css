@@ -1,3 +1,329 @@
-h1 {
-	color: red;
+/************** COLOURS ****************
+ 	White:	#fff;
+	Black: 	#000;
+	Blue:  	#307cfb;
+	Orange:	#f15a24;
+	Red (error): #cc2900;
+	Green (confirmation): #008000;
+	Grey (readonly, disabled): #ccc;
+***************************************/
+
+/******** FONTS *******************************************
+ 	Headings:	font-family: gill-sans-nova, sans-serif;
+				font-style: normal;
+				font-weight: 700;
+	Body text:	font-family: Roboto, Arial, sans-serif;
+**********************************************************/
+
+/***********************
+******** GENERAL *******
+***********************/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Roboto, Arial, sans-serif;	
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
 }
+body {
+	background-color: #fff;
+	color: #000;
+	font-size: 16px;
+	min-width: 275px;
+}
+nav {
+	width: 100%;
+	/*outline: 1px solid red;*/
+}
+textarea {
+	resize: none;
+	padding-top: 5px;
+}
+a:active, button:active {
+	outline: none;
+}
+button:focus {
+	outline: none;
+}
+form {
+	border: 1px solid #000;
+	width: 500px;
+	height: auto;
+	overflow: auto;
+	margin: auto;
+	margin-top: 40px;
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+form div {
+	width: 100%;
+	clear: both;
+	/*outline: 1px solid red;*/
+}
+form div label {
+	float: left;
+	width: 150px;
+	margin-left: 30px;
+	margin-top: 30px;
+	/*outline: 1px solid green;*/
+}
+form div input, form div textarea {
+	float: right;
+	width: 280px;
+	margin-right: 30px;
+	margin-top: 25px;
+	border-radius: 0;
+	font-size: 1em;
+	font-family: Roboto, Arial, sans-serif;	
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #fff;
+	color: #307cfb;
+	transition: border 0.4s;
+	border: 1px solid #000;
+}
+form div input:focus, form div textarea:focus {
+	outline: none;
+	border: 1px solid #f15a24;
+}
+form div input {
+	height: 30px;
+}
+form div textarea {
+	height: 144px;
+}
+form div:last-child {
+	padding-top: 30px;
+	/*outline: 1px solid red;*/
+}
+form div:last-child button {
+	margin: auto;
+	display: block;
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #307cfb;
+	background-color: #fff;
+	padding: 5px 10px;
+	width: 110px;
+	border: 1px solid #307cfb;
+	transition: color 0.4s, background-color 0.4s, border 0.4s; 
+}
+form div:last-child button:hover {
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+	cursor: pointer;
+}
+
+
+
+/**********************************************
+******** NAVIGATION BAR (large screens) *******
+**********************************************/
+
+nav div {
+	width: 1000px;
+	height: 100px;
+	margin: auto;
+	/*outline: 1px solid red;*/
+}
+nav div a {
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	text-decoration: none;
+	color: #307cfb;
+	display: block;
+	padding: 5px 10px;
+	text-align: center;
+	float: left;
+	transition: color 0.4s; 
+}
+nav div a:hover {
+	text-decoration: none;
+	color: #f15a24;
+}
+nav div a:nth-child(1) {
+	margin-left: 38px;
+	margin-top: 17px;
+	padding: 0;
+	width: auto;
+}
+nav div a:nth-child(1) img {
+	width: 80px;
+	height: auto;
+}
+nav div a:nth-child(2) {
+	margin-left: 140px;
+	margin-top: 36px;
+	padding: 0;
+	width: auto;
+}
+nav div a:nth-child(3) {
+	margin-left: 375px;
+	margin-top: 31px;
+	width: 110px;
+}
+nav div a:nth-child(4) {
+	margin-left: 40px;
+	margin-top: 31px;
+	width: 110px;
+}
+nav div a.button-unlogged {
+	color: #307cfb;
+	background-color: #fff;
+	border: 1px solid #307cfb;
+	transition: color 0.4s, background-color 0.4s, border 0.4s; 
+}
+nav div a.button-unlogged:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+}
+nav div a.link-logged:nth-child(2) {
+	margin-left: 139px;
+	margin-top: 36px;
+	padding: 0;
+	width: auto;
+}
+nav div a.link-logged:nth-child(3) {
+	margin-left: 100px;
+	margin-top: 36px;
+	padding: 0;
+	width: auto;
+}
+nav div a.button-logged {
+	margin-left: 264px;
+	color: #307cfb;
+	background-color: #fff;
+	border: 1px solid #307cfb;
+	transition: color 0.4s, background-color 0.4s, border 0.4s; 
+}
+nav div a.button-logged:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+}
+
+
+
+/****************************
+******** MAIN CONTENT *******
+****************************/
+
+#main-content {
+	width: 100%;
+	margin-top: 20px;
+	/*outline: 1px solid orange;*/
+}
+#main-content > div {
+	width: 1000px;
+	margin:  auto;
+	height: 700px;
+	/*outline: 1px solid green;*/
+}
+h1 {
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #307cfb;
+	text-align: center;
+}
+
+
+
+/****************************
+*********** FOOTER **********
+****************************/
+
+footer {
+	width: 100%;
+	height: 140px;
+	background-color: #307cfb;
+}
+footer > div {
+	width: 1000px;
+	height: 140px;
+	margin: auto;
+}
+footer div div {
+	float: left;
+	height: 140px;
+}
+footer div div:nth-child(1), footer div div:nth-child(3) {
+	width: 450px;
+}
+footer div div:nth-child(2) {
+	width: 100px;
+	height: 100px;
+	margin-top: 20px;
+	background-color: #fff;
+	border-radius: 50px;
+}
+footer div div:nth-child(2) img {
+	width: 70px;
+	margin-top: 20px;
+	margin-left: 15px;
+	height: auto;
+}
+footer div div:nth-child(3) p {
+	font-size: 1em;
+	text-align: right;
+	color: #fff;
+	float: none;
+	clear: both;
+}
+footer div div a {
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	padding: 0;
+	width: auto;
+	float: left;
+	clear: both;
+	text-align: center;
+	border-bottom: 1px solid #307cfb;
+	transition: border-bottom 0.4s; 
+}
+footer div div a:hover {
+	text-decoration: none;
+	border-bottom: 1px solid #fff;
+}
+footer div div a.footer-links {
+	margin-top: 32px;
+	margin-left: 197px;
+}
+footer div div a.footer-links:nth-child(2) {
+	margin-top: 20px;
+	margin-left: 202px;
+}
+footer div div a.footer-social {
+	font-size: 1.625em;
+	float: left;
+	clear: none;
+	display: block;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-left: 30px;
+}
+footer div div a.footer-social:nth-child(1) {
+	margin-left: 155px;
+}
+
+
+
+/********** contact.html **********/
+
+
+

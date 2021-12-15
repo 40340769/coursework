@@ -39,7 +39,7 @@ def login():
 			password_db = user[0][4]
 			# User (email) and email match the values from the database
 			if(email_db == email and password_db == bcrypt.hashpw(password.encode('utf-8'),password_db)):
-				flash('Logged in successfully!', category='success')
+				# flash('Logged in successfully!', category='success')
 				session['logged'] = True
 				session['email'] = email
 				return redirect(url_for('views_auth.my_bookmarks'))
