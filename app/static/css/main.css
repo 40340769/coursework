@@ -33,23 +33,26 @@ body {
 	font-size: 16px;
 	min-width: 275px;
 }
-nav {
-	width: 100%;
-	/*outline: 1px solid red;*/
-}
-textarea {
-	resize: none;
-	padding-top: 5px;
-}
-a:active, button:active {
+
+
+
+/***********************
+********* LINKS ********
+***********************/
+
+a:active {
 	outline: none;
 }
-button:focus {
-	outline: none;
-}
+
+
+
+/***********************
+********* FORMS ********
+***********************/
+
 form {
-	border: 1px solid #000;
-	width: 500px;
+	border: 1px solid #307cfb;
+	width: 530px;
 	height: auto;
 	overflow: auto;
 	margin: auto;
@@ -60,14 +63,12 @@ form {
 form div {
 	width: 100%;
 	clear: both;
-	/*outline: 1px solid red;*/
 }
 form div label {
 	float: left;
-	width: 150px;
+	width: 180px;
 	margin-left: 30px;
 	margin-top: 30px;
-	/*outline: 1px solid green;*/
 }
 form div input, form div textarea {
 	float: right;
@@ -80,9 +81,9 @@ form div input, form div textarea {
 	padding-left: 5px;
 	padding-right: 5px;
 	background-color: #fff;
-	color: #307cfb;
+	color: #000;
 	transition: border 0.4s;
-	border: 1px solid #000;
+	border: 1px solid #307cfb;
 }
 form div input:focus, form div textarea:focus {
 	outline: none;
@@ -91,12 +92,21 @@ form div input:focus, form div textarea:focus {
 form div input {
 	height: 30px;
 }
+textarea {
+	resize: none;
+	padding-top: 5px;
+}
 form div textarea {
 	height: 144px;
 }
 form div:last-child {
 	padding-top: 30px;
-	/*outline: 1px solid red;*/
+}
+button:active {
+	outline: none;
+}
+button:focus {
+	outline: none;
 }
 form div:last-child button {
 	margin: auto;
@@ -121,15 +131,100 @@ form div:last-child button:hover {
 
 
 
+/****************************
+******* RETURN BUTTON *******
+****************************/
+
+div.return-button {
+	margin-top: 40px;
+}
+div.return-button a {
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	text-decoration: none;
+	color: #307cfb;
+	background-color: #fff;
+	border: 1px solid #307cfb;
+	display: block;
+	padding: 5px 10px;
+	text-align: center;
+	width: 110px;
+	margin: auto;
+	transition: color 0.4s, background-color 0.4s, border 0.4s;
+}
+div.return-button a:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+}
+
+
+
+/***********************
+**** FLASH MESSAGES ****
+***********************/
+
+div.flash-error, div.flash-success {
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding-top: 8px;
+	margin: auto;
+}
+div.flash-error {
+	color: red;
+}
+div.flash-success {
+	color: #008000;
+}
+div.flash-error-my-bookmarks, div.flash-success-my-bookmarks {
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 247px;
+	padding-top: 0;
+	margin: auto;
+}
+div.flash-error-my-bookmarks {
+	color: red;
+}
+div.flash-success-my-bookmarks {
+	color: #008000;
+}
+div.flash-error-my-bookmarks-main, div.flash-success-my-bookmarks-main {
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 247px;
+	padding-top: 0;
+	margin: auto;
+}
+div.flash-error-my-bookmarks-main {
+	color: red;
+}
+div.flash-success-my-bookmarks-main {
+	color: #008000;
+}
+
+
+
 /**********************************************
 ******** NAVIGATION BAR (large screens) *******
 **********************************************/
 
+nav {
+	width: 100%;
+}
 nav div {
 	width: 1000px;
 	height: 100px;
 	margin: auto;
-	/*outline: 1px solid red;*/
 }
 nav div a {
 	font-size: 1.125em;
@@ -221,19 +316,24 @@ nav div a.button-logged:hover {
 #main-content {
 	width: 100%;
 	margin-top: 20px;
-	/*outline: 1px solid orange;*/
 }
 #main-content > div {
 	width: 1000px;
 	margin:  auto;
-	height: 700px;
-	/*outline: 1px solid green;*/
+	min-height: 600px;
 }
 h1 {
 	font-family: gill-sans-nova, sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	color: #307cfb;
+	color: #000;
+	text-align: center;
+}
+h2 {
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #000;
 	text-align: center;
 }
 
@@ -247,6 +347,7 @@ footer {
 	width: 100%;
 	height: 140px;
 	background-color: #307cfb;
+	margin-top: 100px;
 }
 footer > div {
 	width: 1000px;
@@ -300,6 +401,12 @@ footer div div a:hover {
 	text-decoration: none;
 	border-bottom: 1px solid #fff;
 }
+footer div div:nth-child(2) a {
+	border-bottom: none;
+}
+footer div div:nth-child(2) a:hover {
+	border-bottom: none;
+}
 footer div div a.footer-links {
 	margin-top: 32px;
 	margin-left: 197px;
@@ -323,7 +430,428 @@ footer div div a.footer-social:nth-child(1) {
 
 
 
-/********** contact.html **********/
+/***************************************
+************** home.html ***************
+***************************************/
+
+div.animated {
+	width: 300px;
+	height: auto;
+	margin: auto;
+	margin-top: 50px;
+	position: relative;
+}
+#animated-front, #animated-background {
+	width: 300px;
+	height: auto;
+	position: absolute;
+}
+#animated-front {
+	left: -4px;
+	top: -42px;
+}
+#animated-front {
+	-webkit-animation: rotation 7s infinite linear;
+}
+@-webkit-keyframes rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(359deg);
+	}
+}
 
 
+
+/***************************************
+********** my_bookmarks.html ***********
+***************************************/
+
+/***** NEW button *****/
+div.new-bookmark {
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	margin-top: 6px;
+	width: 924px;
+}
+div.new-bookmark a {
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	text-decoration: none;
+	color: #307cfb;
+	background-color: #fff;
+	border: 1px solid #307cfb;
+	display: block;
+	padding: 5px 10px;
+	text-align: center;
+	width: 110px;
+	transition: color 0.4s, background-color 0.4s, border 0.4s;
+}
+div.new-bookmark a:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+}
+
+/*** search features ***/
+#search-main-container {
+	width: 900px;
+	margin: auto;
+	margin-bottom: 20px;
+	overflow: auto;
+}
+#search-container {
+	float: left;
+}
+#show-all-container {
+	float: right;
+}
+#search-container form {
+	margin-top: 20px;
+	width: 700px;
+	border: none;
+}
+#search-container form input {
+	width: 280px;
+	height: 30px;
+	float: left;
+	margin-top: 3px;
+	margin-left: 250px;
+	border-radius: 0;
+	font-size: 1em;
+	font-family: Roboto, Arial, sans-serif;	
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid #307cfb;
+	transition: border 0.4s;
+}
+#search-container form input:focus {
+	outline: none;
+	border: 1px solid #f15a24;
+}
+#search-container form button {
+	display: block;
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #307cfb;
+	background-color: #fff;
+	padding: 5px 10px;
+	width: 110px;
+	float: left;
+	margin-left: 20px;
+	border: 1px solid #307cfb;
+	transition: color 0.4s, background-color 0.4s, border 0.4s; 
+}
+#search-container form button:hover {
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+	cursor: pointer;
+}
+#show-all-container form {
+	margin-top: 20px;
+	width: 150px;
+	border: none;
+}
+#show-all-container form button {
+	display: block;
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #307cfb;
+	background-color: #fff;
+	padding: 5px 10px;
+	width: 120px;
+	float: right;
+	margin-left: 20px;
+	border: 1px solid #307cfb;
+	transition: color 0.4s, background-color 0.4s, border 0.4s; 
+}
+#show-all-container form button:hover {
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+	cursor: pointer;
+}
+
+/*** my bookmarks ***/
+#my-bookmarks-main-container {
+	width: 1000px;
+}
+#my-bookmarks-main-container > div {
+	width: 600px;
+	overflow: auto;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 30px;
+	border: 1px solid #307cfb;
+}
+#my-bookmarks-main-container div div:nth-child(1) {
+	width: auto;
+	overflow: auto;
+}
+#my-bookmarks-main-container div div:nth-child(1) p {
+	float: left;
+	margin-bottom: 20px;
+}
+#my-bookmarks-main-container div div:nth-child(1) p:nth-child(1), #my-bookmarks-main-container div div:nth-child(1) p:nth-child(3) {
+	width: 130px;
+}
+#my-bookmarks-main-container div div:nth-child(1) p:nth-child(2), #my-bookmarks-main-container div div:nth-child(1) p:nth-child(4) {
+	font-size: 1em;
+	font-family: Roboto, Arial, sans-serif;	
+	color: #000;
+	width: 400px;
+}
+#my-bookmarks-main-container div div:nth-child(1) p:nth-child(4) a {
+	text-decoration: none;
+	color: #307cfb;
+	transition: color 0.4s; 
+}
+#my-bookmarks-main-container div div:nth-child(1) p:nth-child(4) a:hover {
+	text-decoration: none;
+	color: #f15a24; 
+}
+#my-bookmarks-main-container div div:nth-child(2) {
+	margin-top: 0;
+	width: auto;
+	overflow: auto;
+}
+#my-bookmarks-main-container div div:nth-child(2) form {
+	width: 179px;
+	height: auto;
+	float: left;
+	margin-bottom: 0;
+	margin-top: 0;
+	border: none;
+	padding-bottom: 0;
+}
+#my-bookmarks-main-container div div:nth-child(2) form button {
+	display: block;
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #307cfb;
+	background-color: #fff;
+	padding: 5px 10px;
+	width: 110px;
+	border: 1px solid #307cfb;
+	margin-bottom: 0;
+	transition: color 0.4s, background-color 0.4s, border 0.4s;
+}
+#my-bookmarks-main-container div div:nth-child(2) form button:hover {
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+	cursor: pointer;
+}
+#my-bookmarks-main-container div div:nth-child(2) form:nth-child(1) button {
+	margin-left: 40px;
+}
+#my-bookmarks-main-container div div:nth-child(2) form:nth-child(2) button {
+	margin: auto;
+}
+#my-bookmarks-main-container div div:nth-child(2) form:nth-child(3) button {
+	margin-right: 40px;
+	float: right;
+}
+
+
+
+/***************************************
+********** view_bookmark.html **********
+***************************************/
+
+#view-bookmark {
+	width: 600px;
+	overflow: auto;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	padding: 30px;
+	padding-bottom: 10px;
+	border: 1px solid #307cfb;
+}
+#view-bookmark p {
+	float: left;
+	margin-bottom: 20px;
+}
+#view-bookmark p:nth-child(1), #view-bookmark p:nth-child(3), #view-bookmark p:nth-child(5), #view-bookmark p:nth-child(7) {
+	width: 130px;
+	color: #000;
+}
+#view-bookmark p:nth-child(2), #view-bookmark p:nth-child(4), #view-bookmark p:nth-child(6), #view-bookmark p:nth-child(8) {
+	font-size: 1em;
+	font-family: Roboto, Arial, sans-serif;	
+	color: #000;
+	width: 400px;
+}
+#view-bookmark p:nth-child(6) a {
+	text-decoration: none;
+	color: #307cfb;
+	transition: color 0.4s; 
+}
+#view-bookmark p:nth-child(6) a:hover {
+	text-decoration: none;
+	color: #f15a24; 
+}
+
+
+
+/***************************************
+********* delete_bookmark.html *********
+***************************************/
+
+#delete-bookmark {
+	width: 600px;
+	overflow: auto;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	padding: 30px;
+	padding-bottom: 10px;
+	border: 1px solid #307cfb;
+}
+#delete-bookmark p {
+	float: left;
+	margin-bottom: 20px;
+}
+#delete-bookmark p:nth-child(1), #delete-bookmark p:nth-child(3), #delete-bookmark p:nth-child(5), #delete-bookmark p:nth-child(7) {
+	width: 130px;
+	color: #000;
+}
+#delete-bookmark p:nth-child(2), #delete-bookmark p:nth-child(4), #delete-bookmark p:nth-child(6), #delete-bookmark p:nth-child(8) {
+	font-size: 1em;
+	font-family: Roboto, Arial, sans-serif;	
+	color: #000;
+	width: 400px;
+}
+#delete-bookmark p:nth-child(6) a {
+	text-decoration: none;
+	color: #307cfb;
+	transition: color 0.4s; 
+}
+#delete-bookmark p:nth-child(6) a:hover {
+	text-decoration: none;
+	color: #f15a24; 
+}
+#delete-bookmark-question {
+	width: 600px;
+	height: auto;
+	overflow: auto;
+	margin: auto;
+	margin-top: 50px;
+}
+#delete-bookmark-question > p, #delete-bookmark-question > form, #delete-bookmark-question > div.return-button {
+	float: left;
+	text-align: center;
+}
+#delete-bookmark-question > p {
+	width: 100%;
+}
+#delete-bookmark-question > form, #delete-bookmark-question > div.return-button {
+	width: 50%;
+	margin-top: 30px;
+}
+#delete-bookmark-question > form {
+	padding: 0;
+	border: none;
+}
+#delete-bookmark-question > form button {
+	margin: auto;
+	margin-left: 165px;
+	display: block;
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #307cfb;
+	background-color: #fff;
+	padding: 5px 10px;
+	width: 110px;
+	border: 1px solid #307cfb;
+	transition: color 0.4s, background-color 0.4s, border 0.4s; 
+}
+#delete-bookmark-question > form button:hover {
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+	cursor: pointer;
+}
+#delete-bookmark-question > div.return-button a {
+	margin-right: 165px;
+}
+
+
+
+/***************************************
+************* account.html *************
+***************************************/
+
+#account {
+	width: 490px;
+	overflow: auto;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	padding: 30px;
+	padding-bottom: 10px;
+	border: 1px solid #307cfb;
+}
+#account p {
+	float: left;
+	margin-bottom: 20px;
+}
+#account p:nth-child(1), #account p:nth-child(3), #account p:nth-child(5) {
+	width: 150px;
+	color: #000;
+}
+#account p:nth-child(2), #account p:nth-child(4), #account p:nth-child(6) {
+	font-size: 1em;
+	font-family: Roboto, Arial, sans-serif;	
+	color: #000;
+	width: 270px;
+}
+
+
+
+/***************************************
+************* privacy.html *************
+***************************************/
+
+#privacy {
+	width: 700px;
+	margin: auto;
+	margin-top: 40px;
+	border: 1px solid #307cfb;
+	padding: 30px;
+}
+#privacy p {
+	margin-bottom: 10px;
+}
+#privacy p:last-child {
+	margin-bottom: 0;
+}
+#privacy p a {
+	text-decoration: none;
+	color: #307cfb;
+	transition: color 0.4s; 
+}
+#privacy p a:hover {
+	text-decoration: none;
+	color: #f15a24;
+}
 

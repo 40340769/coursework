@@ -29,7 +29,7 @@
 				{% endif %}
 			</div>
 		</nav>
-		{% with messages = get_flashed_messages(with_categories=true) %} 
+		<!-- {% with messages = get_flashed_messages(with_categories=true) %} 
 			{% if messages %}
 				{% for category, message in messages %}
 					{% if category == 'error' %}
@@ -43,7 +43,7 @@
 					{% endif %}
 				{% endfor %}
 			{% endif %}
-		{% endwith %}
+		{% endwith %} -->
 		<div id="main-content">
 			<div>
 				{% block content %}Base{% endblock %}
@@ -52,11 +52,11 @@
 		<footer>
 			<div>
 				<div>
-					<a class="footer-links" href="/contact">Contact</a>
-					<a class="footer-links" href="/privacy">Privacy</a>
+					<a class="footer-links" href="/contact" title="Contact page">Contact</a>
+					<a class="footer-links" href="/privacy" title="Privacy page">Privacy</a>
 				</div>
 				<div>
-					<img src="static/images/logo.png" />
+					<a href="/" title="Home page"><img src="static/images/logo.png" /></a>
 				</div>
 				<div>
 					<a id="fb-ico" class="footer-social" href="#" target="_blank"><i class="fab fa-facebook"></i></a>

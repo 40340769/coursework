@@ -3,9 +3,13 @@
 {% block title %}Account{% endblock %}
 
 {% block content %}
-	<h1>Account page</h1>
-	<p>ID: {{ user_info[0][0] }}</p>
-	<p>Email: {{ user_info[0][1] }}</p>
-	<p>First Name: {{ user_info[0][2] }}</p>
-	<p>Last Name: {{ user_info[0][3] }}</p>
+	<h1>ACCOUNT</h1>
+	<div id="account">
+		<p>EMAIL:</p>
+		<p>{{ user_info[0][1] }}</p>
+		<p>FIRST NAME:</p>
+		<p>{{ user_info[0][2] }}</p>
+		<p>LAST NAME:</p>
+		<p>{{ user_info[0][3] }}</p>
+	</div>
 {% endblock %}

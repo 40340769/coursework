@@ -3,17 +3,26 @@
 {% block title %}Delete Bookmark{% endblock %}
 
 {% block content %}
-	<h1>Delete Bookmark page</h1>
-	<p>ID: {{ bookmark_info[0][0] }}</p>
-	<p>Name: {{ bookmark_info[0][1] }}</p>
-	<p>Category: {{ bookmark_info[0][2] }}</p>
-	<p>URL: <a href="{{ bookmark_info[0][3] }}" target="_blank">{{ bookmark_info[0][3] }}</a></p>
-	<p>Notes: {{ bookmark_info[0][4] }}</p>
-	<p>Are you sure you want to delete this bookmark?</p>
-	<form method="POST">
-		<button type="submit">Yes</button>
-		<input type="hidden" name="hidden_bookmark_id" value="{{ bookmark_info[0][0] }}" />
-		<input type="hidden" name="delete_bookmark_yes" value="delete_bookmark_yes" />
-	</form>
-	<a href="/my-bookmarks">No</a>
+	<h1>DELETE BOOKMARK</h1>
+	<div id="delete-bookmark">
+		<p>NAME:</p>
+		<p>{{ bookmark_info[0][1] }}</p>
+		<p>CATEGORY:</p>
+		<p>{{ bookmark_info[0][2] }}</p>
+		<p>URL:</p>
+		<p><a href="{{ bookmark_info[0][3] }}" target="_blank">{{ bookmark_info[0][3] }}</a></p>
+		<p>NOTES:</p>
+		<p>{{ bookmark_info[0][4] }}</p>
+	</div>
+	<div id="delete-bookmark-question">
+		<p>Are you sure you want to delete this bookmark?</p>
+		<form method="POST">
+			<button type="submit">YES</button>
+			<input type="hidden" name="hidden_bookmark_id" value="{{ bookmark_info[0][0] }}" />
+			<input type="hidden" name="delete_bookmark_yes" value="delete_bookmark_yes" />
+		</form>
+		<div class="return-button">
+			<a href="/my-bookmarks">NO</a>
+		</div>
+	</div>
 {% endblock %}

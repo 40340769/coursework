@@ -42,7 +42,7 @@ def my_bookmarks():
 			flash('Sorry, no specified bookmarks found. Please try again.', category='search_error')
 		else:
 			user_bookmarks = user_bookmarks_search
-			flash('Result for: "' + search_term + '"', category='search_success')
+			flash('Result(s) for: "' + search_term + '"', category='search_success')
 	elif request.form.get('show_all_bookmarks') == 'show_all_bookmarks':
 		query_bookmarks = "SELECT * FROM bookmarks WHERE user_id=? ORDER BY name"
 		cursor.execute(query_bookmarks,(user_id,))
@@ -105,13 +105,13 @@ def new_bookmark():
 		note = request.form.get('note')
 
 		if len(name) < 1:
-			flash('Name of the bookmark is too short!', category='error')
+			flash('Name of the bookmark cannot be empty.', category='error')
 		elif len(category) < 1:
-			flash('Category of the bookmark is too short!', category='error')
+			flash('Category of the bookmark cannot be empty.', category='error')
 		elif len(url) < 1:
-			flash('URL of the bookmark is too short!', category='error')
+			flash('URL of the bookmark cannot be empty.', category='error')
 		elif len(note) < 1:
-			flash('Note for the bookmark is too short!', category='error')
+			flash('Note for the bookmark cannot be empty.', category='error')
 		else:
 			# Add bookmark to database
 			conn = sqlite3.connect(db_location)
@@ -174,13 +174,13 @@ def edit_bookmark():
 		bookmark_note = request.form.get('note')
 
 		if len(bookmark_name) < 1:
-			flash('Name of the bookmark is too short!', category='error')
+			flash('Name of the bookmark cannot be empty.', category='error')
 		elif len(bookmark_category) < 1:
-			flash('Category of the bookmark is too short!', category='error')
+			flash('Category of the bookmark cannot be empty.', category='error')
 		elif len(bookmark_url) < 1:
-			flash('URL of the bookmark is too short!', category='error')
+			flash('URL of the bookmark cannot be empty.', category='error')
 		elif len(bookmark_note) < 1:
-			flash('Note for the bookmark is too short!', category='error')
+			flash('Note for the bookmark cannot be empty.', category='error')
 		else:
 			# Update bookmark in the database
 			conn = sqlite3.connect(db_location)

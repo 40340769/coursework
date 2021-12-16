@@ -3,26 +3,44 @@
 {% block title %}New Bookmark{% endblock %}
 
 {% block content %}
-	<h1>New Bookmark page</h1>
-	<form method="POST">
-		<h3>New Bookmark</h3>
+	<h1>NEW BOOKMARK</h1>
+		{% with messages = get_flashed_messages(with_categories=true) %} 
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == 'error' %}
+						<div class="flash-error">
+							{{ message }}
+						</div>
+					{% elif category == 'success' %}
+						<div class="flash-success">
+							{{ message }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+	<form method="POST" autocomplete="off">
 		<div>
-			<label for="name">Name</label>
-			<input type="text" id="name" name="name" placeholder="Enter name" />
+			<label for="name">NAME:</label>
+			<input type="text" id="name" name="name" />
 		</div>
 		<div>
-			<label for="category">Category</label>
-			<input type="text" id="category" name="category" placeholder="Enter category" />
+			<label for="category">CATEGORY:</label>
+			<input type="text" id="category" name="category" />
 		</div>
 		<div>
-			<label for="url">URL</label>
-			<input type="text" id="url" name="url" placeholder="Enter URL" />
+			<label for="url">URL:</label>
+			<input type="text" id="url" name="url" />
 		</div>
 		<div>
-			<label for="note">Note</label>
+			<label for="note">NOTE:</label>
 			<textarea name="note" id="note"></textarea>
-		</div>	
-		<button type="submit">Add</button>
+		</div>
+		<div>	
+			<button type="submit">ADD</button>
+		</div>
 	</form>
-	<a href="/my-bookmarks">Return</a>
+	<div class="return-button">
+		<a href="/my-bookmarks">RETURN</a>
+	</div>
 {% endblock %}

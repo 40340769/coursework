@@ -3,55 +3,82 @@
 {% block title %}My Bookmarks{% endblock %}
 
 {% block content %}
-	<div>
-		<a href="/new-bookmark">New</a>
+	<div class="new-bookmark">
+		<a href="/new-bookmark">NEW</a>
 	</div>
-	<h1>My Bookmarks page</h1>
-	<form method="POST" autocomplete="off">
-        <input title="Search form - main navigation menu" type="text" name="search_term" placeholder="Search..." />
-        <button type="submit">Search</button>
-        <input type="hidden" name="search_bookmark" value="search_bookmark" />
-    </form>
-    {% with messages = get_flashed_messages(with_categories=true) %} 
-		{% if messages %}
-			{% for category, message in messages %}
-				{% if category == 'search_error' %}
-					<div style="color:red;">
-						{{ message }}
-					</div>
-				{% elif category == 'search_success' %}
-					<div style="color:green;">
-						{{ message }}
-					</div>
+	<h1>MY BOOKMARKS</h1>
+		{% with messages = get_flashed_messages(with_categories=true) %} 
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == 'error' %}
+						<div class="flash-error-my-bookmarks-main">
+							{{ message }}
+						</div>
+					{% elif category == 'success' %}
+						<div class="flash-success-my-bookmarks-main">
+							{{ message }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+	<div id="search-main-container">
+		<div id="search-container">
+			<form method="POST" autocomplete="off">
+		        <input title="Search form - main navigation menu" type="text" name="search_term" placeholder="Search..." />
+		        <button type="submit">SEARCH</button>
+		        <input type="hidden" name="search_bookmark" value="search_bookmark" />
+		    </form>
+		    {% with messages = get_flashed_messages(with_categories=true) %} 
+				{% if messages %}
+					{% for category, message in messages %}
+						{% if category == 'search_error' %}
+							<div class="flash-error-my-bookmarks">
+								{{ message }}
+							</div>
+						{% elif category == 'search_success' %}
+							<div class="flash-success-my-bookmarks">
+								{{ message }}
+							</div>
+						{% endif %}
+					{% endfor %}
 				{% endif %}
-			{% endfor %}
-		{% endif %}
-	{% endwith %}
-	<form method="POST">
-        <button type="submit">Show all</button>
-        <input type="hidden" name="show_all_bookmarks" value="show_all_bookmarks" />
-    </form>
+			{% endwith %}
+		</div>
+		<div id="show-all-container">
+			<form method="POST">
+		        <button type="submit">SHOW ALL</button>
+		        <input type="hidden" name="show_all_bookmarks" value="show_all_bookmarks" />
+		    </form>
+		</div>
+	</div>
+	<div id="my-bookmarks-main-container">
 	{% for user_bookmark in user_bookmarks %}
 		<div>
-			<p>Name:</p>
-			<p>{{ user_bookmark[1] }}</p>
-			<p>URL:</p>
-			<p><a href="{{ user_bookmark[3] }}" target="_blank">{{ user_bookmark[3] }}</a></p>
+			<div>
+				<p>NAME:</p>
+				<p>{{ user_bookmark[1] }}</p>
+				<p>URL:</p>
+				<p><a href="{{ user_bookmark[3] }}" target="_blank">{{ user_bookmark[3] }}</a></p>
+			</div>
+			<div>
+				<form method="POST">
+					<button type="submit">VIEW</button>
+					<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
+					<input type="hidden" name="view_bookmark" value="view_bookmark" />
+				</form>
+				<form method="POST">
+					<button type="submit">EDIT</button>
+					<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
+					<input type="hidden" name="edit_bookmark" value="edit_bookmark" />
+				</form>
+				<form method="POST">
+					<button type="submit">DELETE</button>
+					<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
+					<input type="hidden" name="delete_bookmark" value="delete_bookmark" />
+				</form>
+			</div>
 		</div>
-		<form method="POST">
-			<button type="submit">View</button>
-			<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
-			<input type="hidden" name="view_bookmark" value="view_bookmark" />
-		</form>
-		<form method="POST">
-			<button type="submit">Edit</button>
-			<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
-			<input type="hidden" name="edit_bookmark" value="edit_bookmark" />
-		</form>
-		<form method="POST">
-			<button type="submit">Delete</button>
-			<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
-			<input type="hidden" name="delete_bookmark" value="delete_bookmark" />
-		</form>
 	{% endfor %}
+	</div>
 {% endblock %}
