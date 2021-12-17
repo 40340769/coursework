@@ -434,6 +434,7 @@ footer div div a.footer-social:nth-child(1) {
 ************** home.html ***************
 ***************************************/
 
+/******** animated logo ********/
 div.animated {
 	width: 300px;
 	height: auto;
@@ -460,6 +461,105 @@ div.animated {
 	to {
 		-webkit-transform: rotate(359deg);
 	}
+}
+
+/******** ABOUT & JOIN buttons ********/
+div.buttons-home {
+	width: 300px;
+	margin: auto;
+	margin-top: 400px;
+	overflow: auto;
+}
+div.buttons-home a {
+	font-size: 1.125em;
+	font-family: gill-sans-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	text-decoration: none;
+	color: #307cfb;
+	background-color: #fff;
+	border: 1px solid #307cfb;
+	display: block;
+	padding: 5px 10px;
+	text-align: center;
+	width: 110px;
+	margin: auto;
+	transition: color 0.4s, background-color 0.4s, border 0.4s;
+}
+div.buttons-home a:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #f15a24;
+	border: 1px solid #f15a24;
+}
+div.buttons-home a:nth-child(1) {
+	float: left;
+}
+div.buttons-home a:nth-child(2) {
+	float: right;
+}
+
+
+
+/***************************************
+************** about.html **************
+***************************************/
+
+#about-main-container {
+	width: 700px;
+	margin: auto;
+	margin-top: 40px;
+}
+#about-main-container a {
+	text-decoration: none;
+	color: #307cfb;
+	transition: color 0.4s; 
+}
+#about-main-container a:hover {
+	text-decoration: none;
+	color: #f15a24;
+}
+#about-main-container img {
+	width: 120px;
+	height: auto;
+	display: block;
+	float: left;
+}
+#about-main-container p {
+	width: 320px;
+	float: left;
+}
+#about-main-container div:nth-child(1) p {
+	margin-bottom: 10px;
+	width: 100%;
+	text-align: center;
+}
+#about-main-container div:nth-child(1) p:nth-child(2) {
+	margin-bottom: 30px;
+}
+#about-main-container div:nth-child(2), #about-main-container div:nth-child(3), #about-main-container div:nth-child(4), #about-main-container div:nth-child(5), #about-main-container div:nth-child(6) {
+	width: 500px;
+	margin: auto;
+	margin-bottom: 50px;
+	overflow: auto;
+}
+#about-main-container div:nth-child(2) p, #about-main-container div:nth-child(3) p, #about-main-container div:nth-child(4) p, #about-main-container div:nth-child(5) p, #about-main-container div:nth-child(6) p {
+	margin-left: 50px;
+}
+#about-main-container div:nth-child(2) p {
+	margin-top: 50px;
+}
+#about-main-container div:nth-child(3) p {
+	margin-top: 31px;
+}
+#about-main-container div:nth-child(4) p {
+	margin-top: 38px;
+}
+#about-main-container div:nth-child(5) p {
+	margin-top: 33px;
+}
+#about-main-container div:nth-child(6) p {
+	margin-top: 1px;
 }
 
 
