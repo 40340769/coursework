@@ -9,12 +9,15 @@
         <link rel="stylesheet" href="https://use.typekit.net/bcn0yca.css">
         <!-- Fonts - Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+        <!-- Icons - Google Material Icons -->
+        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Icons - Font Awesome -->
         <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
 		<title>{% block title %}Base{% endblock %}</title>
 	</head>
 	<body>
-		<nav>
+		<nav id="nav-large-medium">
 			<div>
 				{% if (session['logged'] != True) %}
 					<a href="/" title="Home page"><img src="static/images/logo.png" /></a>
@@ -26,6 +29,21 @@
 					<a class="link-logged" href="/my-bookmarks" title="My Bookmarks page">MY BOOKMARKS</a>
 					<a class="link-logged" href="/account" title="Account page">ACCOUNT</a>
 					<a class="button-logged" href="/logout" title="Logout">LOGOUT</a>
+				{% endif %}
+			</div>
+		</nav>
+		<nav id="nav-small">
+			<div>
+				{% if (session['logged'] != True) %}
+					<a href="/" title="Home page"><img src="static/images/logo.png" /></a>
+					<a class="link-unlogged" href="/about" title="About page"><span class="material-icons-outlined">info</span></a>
+					<a class="button-unlogged" href="/register" title="Register page"><span class="material-icons-outlined">person_add_alt</span></a>
+					<a class="button-unlogged" href="/login" title="Login page"><span class="material-icons-outlined">login</span></a>
+				{% else %}
+					<a href="/" title="Home page"><img id="logo-top" src="static/images/logo.png" /></a>
+					<a class="link-logged" href="/my-bookmarks" title="My Bookmarks page"><span class="material-icons-outlined">star_outline</span></a>
+					<a class="link-logged" href="/account" title="Account page"><span class="material-icons-outlined">perm_identity</span></a>
+					<a class="link-logged" href="/logout" title="Logout"><span class="material-icons-outlined">logout</span></a>
 				{% endif %}
 			</div>
 		</nav>

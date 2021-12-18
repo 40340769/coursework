@@ -242,15 +242,18 @@ div.flash-success-my-bookmarks-main {
 **************** NAVIGATION BAR ***************
 **********************************************/
 
-nav {
+#nav-large-medium {
 	width: 100%;
 }
-nav div {
+#nav-small {
+	display: none;
+}
+#nav-large-medium div {
 	width: 1000px;
 	height: 100px;
 	margin: auto;
 }
-nav div a {
+#nav-large-medium div a {
 	font-size: 1.125em;
 	font-family: gill-sans-nova, sans-serif;
 	font-style: normal;
@@ -263,68 +266,68 @@ nav div a {
 	float: left;
 	transition: color 0.4s; 
 }
-nav div a:hover {
+#nav-large-medium div a:hover {
 	text-decoration: none;
 	color: #f15a24;
 }
-nav div a:nth-child(1) {
+#nav-large-medium div a:nth-child(1) {
 	margin-left: 38px;
 	margin-top: 17px;
 	padding: 0;
 	width: auto;
 }
-nav div a:nth-child(1) img {
+#nav-large-medium div a:nth-child(1) img {
 	width: 80px;
 	height: auto;
 }
-nav div a:nth-child(2) {
+#nav-large-medium div a:nth-child(2) {
 	margin-left: 140px;
 	margin-top: 36px;
 	padding: 0;
 	width: auto;
 }
-nav div a:nth-child(3) {
+#nav-large-medium div a:nth-child(3) {
 	margin-left: 375px;
 	margin-top: 31px;
 	width: 110px;
 }
-nav div a:nth-child(4) {
+#nav-large-medium div a:nth-child(4) {
 	margin-left: 40px;
 	margin-top: 31px;
 	width: 110px;
 }
-nav div a.button-unlogged {
+#nav-large-medium div a.button-unlogged {
 	color: #307cfb;
 	background-color: #fff;
 	border: 1px solid #307cfb;
 	transition: color 0.4s, background-color 0.4s, border 0.4s; 
 }
-nav div a.button-unlogged:hover {
+#nav-large-medium div a.button-unlogged:hover {
 	text-decoration: none;
 	color: #fff;
 	background-color: #f15a24;
 	border: 1px solid #f15a24;
 }
-nav div a.link-logged:nth-child(2) {
+#nav-large-medium div a.link-logged:nth-child(2) {
 	margin-left: 139px;
 	margin-top: 36px;
 	padding: 0;
 	width: auto;
 }
-nav div a.link-logged:nth-child(3) {
+#nav-large-medium div a.link-logged:nth-child(3) {
 	margin-left: 100px;
 	margin-top: 36px;
 	padding: 0;
 	width: auto;
 }
-nav div a.button-logged {
+#nav-large-medium div a.button-logged {
 	margin-left: 264px;
 	color: #307cfb;
 	background-color: #fff;
 	border: 1px solid #307cfb;
 	transition: color 0.4s, background-color 0.4s, border 0.4s; 
 }
-nav div a.button-logged:hover {
+#nav-large-medium div a.button-logged:hover {
 	text-decoration: none;
 	color: #fff;
 	background-color: #f15a24;
@@ -1011,25 +1014,25 @@ SCREEN SIZE: 768px-1030px (tablets)
 	**************** NAVIGATION BAR ****************
 	***********************************************/
 
-	nav div {
+	#nav-large-medium div {
 		width: 700px; /* 1000px */
 	}
-	nav div a:nth-child(1) {
+	#nav-large-medium div a:nth-child(1) {
 		margin-left: 20px; /* 38px */
 	}
-	nav div a:nth-child(2) {
+	#nav-large-medium div a:nth-child(2) {
 		margin-left: 100px; /* 140px */
 	}
-	nav div a:nth-child(3) {
+	#nav-large-medium div a:nth-child(3) {
 		margin-left: 160px; /* 375px */
 	}
-	nav div a.link-logged:nth-child(2) {
+	#nav-large-medium div a.link-logged:nth-child(2) {
 		margin-left: 100px; /* 139px */
 	}
-	nav div a.link-logged:nth-child(3) {
+	#nav-large-medium div a.link-logged:nth-child(3) {
 		margin-left: 50px; /* 100px */
 	}
-	nav div a.button-logged {
+	#nav-large-medium div a.button-logged {
 		margin-left: 92px; /* 264px */
 	}
 
@@ -1116,7 +1119,6 @@ SCREEN SIZE: 768px-1030px (tablets)
 	#privacy {
 		width: 600px; /* 700px */
 	}
-
 }
 
 
@@ -1126,6 +1128,140 @@ SCREEN SIZE: 320px-767px (smartphones)
 ---------------------------------------*/
 
 @media screen and (max-width: 767px) {
+
+	/*body {
+		min-width: 300px;
+	}
+	#main-content {
+		min-width: 300px;
+	}
+	footer {
+		min-width: 300px;
+	}*/
+
+	/**********************************************
+	**************** NAVIGATION BAR ***************
+	**********************************************/
+
+	#nav-large-medium {
+		display: none; /* new */
+	}
+	#nav-small {
+		display: block; /* none */
+		margin: auto;
+	}
+	#nav-small div {
+		width: 90%;
+		min-width: 300px;
+		max-width: 700px;
+		height: 80px;
+		margin: auto;
+	}
+	#nav-small div a {
+		text-decoration: none;
+		color: #307cfb;
+		display: block;
+		float: left;
+		transition: color 0.4s; 
+	}
+	#nav-small div a:hover {
+		text-decoration: none;
+		color: #f15a24;
+	}
+	#nav-small div a span {
+		font-size: 36px;
+	}
+	#nav-small div a:nth-child(1) {
+		margin-left: 8px;
+		margin-top: 7px;
+		width: auto;
+	}
+	#nav-small div a:nth-child(1) img {
+		width: 80px;
+		height: auto;
+	}
+	#nav-small div a:nth-child(2) {
+		margin-left: 15%;
+		margin-top: 22px;
+		width: auto;
+	}
+	#nav-small div a:nth-child(3) {
+		float: right;
+		margin-top: 22px;
+		margin-right: 8px;
+	}
+	#nav-small div a:nth-child(4) {
+		float: right;
+		margin-top: 22px;
+		margin-right: 9%;
+	}
+	#nav-small div a.link-logged:nth-child(2) {
+		margin-left: 15%;
+		margin-top: 22px;
+		width: auto;
+	}
+	#nav-small div a.link-logged:nth-child(3) {
+		margin-left: 9%;
+		margin-top: 22px;
+		width: auto;
+		float: left;
+	}
+	#nav-small div a.link-logged:nth-child(4) {
+		margin-right: 4px; 
+	}
+
+	/****************************
+	*********** FOOTER **********
+	****************************/
+
+	footer > div {
+		width: 90%; /* 700px */
+		min-width: 300px; /* new */
+		max-width: 700px; /* new */
+	}
+	footer div div {
+		float: none; /* left */
+		width: 100%; /* new */
+	}
+	footer div div:nth-child(1), footer div div:nth-child(3) {
+		width: 280px; /* 300px */
+		margin: auto; /* new */
+	}
+	footer div div:nth-child(1) {
+		height: 50px; /* new */
+	}
+	footer div div:nth-child(3) {
+		height: 90px; /* new */
+	}
+	footer div div:nth-child(2) {
+		display: none; /* new */
+	}
+	footer div div:nth-child(3) p {
+		font-size: 0.75em; /* 1em */
+		text-align: center; /* right */
+	}
+	footer div div a.footer-links {
+		clear: none; /* new */
+		width: auto; /* new */
+	}
+	footer div div a.footer-links:nth-child(1) {
+		float: left; /* new */
+		margin-top: 15px; /* new */
+		margin-left: 43px; /* new */
+	}
+	footer div div a.footer-links:nth-child(2) {
+		margin-top: 15px; /* 20px */
+		margin-left: 0; /* 126px */
+		margin-right: 43px; /* new */
+		float: right; /* new */
+	}
+	footer div div a.footer-social {
+		margin-top: 2px; /* 50px */
+		margin-bottom: 16px; /* 20px */
+	}
+	footer div div a.footer-social:nth-child(1) {
+		margin-left: 73px; /* 80px */
+	}
 
 }
 
