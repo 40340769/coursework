@@ -22,16 +22,16 @@ FORMS 					77 				1143
 RETURN BUTTON 			162 			1178
 FLASH MESSAGES			194 			1188
 NAVIGATION BAR 			245 	1024 	1207
-MAIN CONTENT 			343 	1050 	1278
-FOOTER 					373 	1058	1295
+MAIN CONTENT 			343 	1050 	1279
+FOOTER 					373 	1058	1296
 
-home.html				466 			1352
-about.html				536 	1081	1378
-my_bookmarks.html		617 	1091	1449
-view_bookmark.html		832 			1631
-delete_bookmark.html	872 			1659
-account.html			958				1717
-privacy.html			989 	1126	1745
+home.html				466 			1353
+about.html				536 	1081	1379
+my_bookmarks.html		617 	1091	1450
+view_bookmark.html		832 			1632
+delete_bookmark.html	872 			1660
+account.html			958				1718
+privacy.html			989 	1126	1746
 
 SCREEN SIZE: 768px-1030px (tablets)		1018
 SCREEN SIZE: 320px-767px (smartphones)	1137
@@ -1210,6 +1210,7 @@ SCREEN SIZE: 320px-767px (smartphones)
 	#nav-small {
 		display: block; /* none */
 		margin: auto;
+		margin-top: 10px;
 	}
 	#nav-small div {
 		width: 90%;
