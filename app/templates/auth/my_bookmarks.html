@@ -3,10 +3,10 @@
 {% block title %}My Bookmarks{% endblock %}
 
 {% block content %}
-	<div class="new-bookmark">
+	<div id="new-large-medium">
 		<a href="/new-bookmark">NEW</a>
 	</div>
-	<h1>MY BOOKMARKS</h1>
+	<h1 id="my-bookmarks-heading">MY BOOKMARKS</h1>
 		{% with messages = get_flashed_messages(with_categories=true) %} 
 			{% if messages %}
 				{% for category, message in messages %}
@@ -30,7 +30,19 @@
 		        <button id="search-small" type="submit"><span class="material-icons-outlined">search</span></button>
 		        <input type="hidden" name="search_bookmark" value="search_bookmark" />
 		    </form>
-		    {% with messages = get_flashed_messages(with_categories=true) %} 
+		    
+
+		</div>
+		<div id="show-all-container">
+			<div id="new-small">
+				<a href="/new-bookmark"><span class="material-icons-outlined">add</span></a>
+			</div>
+			<form method="POST">
+		        <button type="submit">SHOW ALL</button>
+		        <input type="hidden" name="show_all_bookmarks" value="show_all_bookmarks" />
+		    </form>
+		</div>
+			{% with messages = get_flashed_messages(with_categories=true) %} 
 				{% if messages %}
 					{% for category, message in messages %}
 						{% if category == 'search_error' %}
@@ -45,13 +57,7 @@
 					{% endfor %}
 				{% endif %}
 			{% endwith %}
-		</div>
-		<div id="show-all-container">
-			<form method="POST">
-		        <button type="submit">SHOW ALL</button>
-		        <input type="hidden" name="show_all_bookmarks" value="show_all_bookmarks" />
-		    </form>
-		</div>
+
 	</div>
 	<div id="my-bookmarks-main-container">
 	{% for user_bookmark in user_bookmarks %}
@@ -62,7 +68,7 @@
 				<p>URL:</p>
 				<p><a href="{{ user_bookmark[3] }}" target="_blank">{{ user_bookmark[3] }}</a></p>
 			</div>
-			<div>
+			<div id="view-edit-delete-large-medium">
 				<form method="POST">
 					<button type="submit">VIEW</button>
 					<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
@@ -75,6 +81,23 @@
 				</form>
 				<form method="POST">
 					<button type="submit">DELETE</button>
+					<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
+					<input type="hidden" name="delete_bookmark" value="delete_bookmark" />
+				</form>
+			</div>
+			<div id="view-edit-delete-small">
+				<form method="POST">
+					<button type="submit"><span class="material-icons-outlined">visibility</span></button>
+					<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
+					<input type="hidden" name="view_bookmark" value="view_bookmark" />
+				</form>
+				<form method="POST">
+					<button type="submit"><span class="material-icons-outlined">edit</span></button>
+					<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
+					<input type="hidden" name="edit_bookmark" value="edit_bookmark" />
+				</form>
+				<form method="POST">
+					<button type="submit"><span class="material-icons-outlined">delete</span></button>
 					<input type="hidden" name="hidden_bookmark_id" value="{{ user_bookmark[0] }}" />
 					<input type="hidden" name="delete_bookmark" value="delete_bookmark" />
 				</form>

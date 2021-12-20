@@ -614,7 +614,7 @@ div.buttons-home a:nth-child(2) {
 ***************************************/
 
 /***** NEW button *****/
-div.new-bookmark {
+#new-large-medium {
 	text-align: center;
 	position: absolute;
 	left: 0;
@@ -623,7 +623,10 @@ div.new-bookmark {
 	margin-top: 6px;
 	width: 924px;
 }
-div.new-bookmark a {
+#new-small {
+	display: none;
+}
+#new-large-medium a {
 	font-size: 1.125em;
 	font-family: gill-sans-nova, sans-serif;
 	font-style: normal;
@@ -638,7 +641,7 @@ div.new-bookmark a {
 	width: 110px;
 	transition: color 0.4s, background-color 0.4s, border 0.4s;
 }
-div.new-bookmark a:hover {
+#new-large-medium a:hover {
 	text-decoration: none;
 	color: #fff;
 	background-color: #f15a24;
@@ -772,12 +775,15 @@ div.new-bookmark a:hover {
 	text-decoration: none;
 	color: #f15a24; 
 }
-#my-bookmarks-main-container div div:nth-child(2) {
+#my-bookmarks-main-container div #view-edit-delete-large-medium {
 	margin-top: 0;
 	width: auto;
 	overflow: auto;
 }
-#my-bookmarks-main-container div div:nth-child(2) form {
+#my-bookmarks-main-container div #view-edit-delete-small {
+	display: none;
+}
+#my-bookmarks-main-container div #view-edit-delete-large-medium form {
 	width: 179px;
 	height: auto;
 	float: left;
@@ -786,7 +792,7 @@ div.new-bookmark a:hover {
 	border: none;
 	padding-bottom: 0;
 }
-#my-bookmarks-main-container div div:nth-child(2) form button {
+#my-bookmarks-main-container div #view-edit-delete-large-medium form button {
 	display: block;
 	font-size: 1.125em;
 	font-family: gill-sans-nova, sans-serif;
@@ -800,19 +806,19 @@ div.new-bookmark a:hover {
 	margin-bottom: 0;
 	transition: color 0.4s, background-color 0.4s, border 0.4s;
 }
-#my-bookmarks-main-container div div:nth-child(2) form button:hover {
+#my-bookmarks-main-container div #view-edit-delete-large-medium form button:hover {
 	color: #fff;
 	background-color: #f15a24;
 	border: 1px solid #f15a24;
 	cursor: pointer;
 }
-#my-bookmarks-main-container div div:nth-child(2) form:nth-child(1) button {
+#my-bookmarks-main-container div #view-edit-delete-large-medium form:nth-child(1) button {
 	margin-left: 40px;
 }
-#my-bookmarks-main-container div div:nth-child(2) form:nth-child(2) button {
+#my-bookmarks-main-container div #view-edit-delete-large-medium form:nth-child(2) button {
 	margin: auto;
 }
-#my-bookmarks-main-container div div:nth-child(2) form:nth-child(3) button {
+#my-bookmarks-main-container div #view-edit-delete-large-medium form:nth-child(3) button {
 	margin-right: 40px;
 	float: right;
 }
@@ -1082,7 +1088,7 @@ SCREEN SIZE: 768px-1030px (tablets)
 	***************************************/
 
 	/***** NEW button *****/
-	div.new-bookmark {
+	#new-large-medium {
 		width: 660px; /* 924px */
 	}
 
@@ -1219,6 +1225,36 @@ SCREEN SIZE: 320px-767px (smartphones)
 		cursor: pointer;
 	}*/
 
+	/****************************
+	******* RETURN BUTTON *******
+	****************************/
+
+	/*div.return-button {
+		margin-top: 40px;
+	}*/
+	div.return-button a {
+		font-size: 1em; /* 1.125em */
+		/*font-family: gill-sans-nova, sans-serif;
+		font-style: normal;
+		font-weight: 400;
+		text-decoration: none;
+		color: #307cfb;
+		background-color: #fff;
+		border: 1px solid #307cfb;
+		display: block;*/
+		padding: 3px 7px; /* 5px 10px */
+		/*text-align: center;*/
+		width: 90px; /* 110px */
+		/*margin: auto;
+		transition: color 0.4s, background-color 0.4s, border 0.4s;*/
+	}
+	/*div.return-button a:hover {
+		text-decoration: none;
+		color: #fff;
+		background-color: #f15a24;
+		border: 1px solid #f15a24;
+	}*/
+
 	/***********************
 	**** FLASH MESSAGES ****
 	***********************/
@@ -1242,19 +1278,19 @@ SCREEN SIZE: 320px-767px (smartphones)
 	}*/
 	div.flash-error-my-bookmarks, div.flash-success-my-bookmarks {
 		text-align: center;
-		position: absolute;
+		position: relative; /* absolute */
 		left: 0;
 		right: 0;
-		top: 247px;
+		top: -5px; /* 247px */
 		padding-top: 0;
 		margin: auto;
 	}
-	div.flash-error-my-bookmarks {
+	/*div.flash-error-my-bookmarks {
 		color: red;
 	}
 	div.flash-success-my-bookmarks {
 		color: #008000;
-	}
+	}*/
 	div.flash-error-my-bookmarks-main, div.flash-success-my-bookmarks-main {
 		text-align: center;
 		position: absolute;
@@ -1517,31 +1553,31 @@ SCREEN SIZE: 320px-767px (smartphones)
 	***************************************/
 
 	/***** NEW button *****/
-	div.new-bookmark {
+	#new-large-medium {
+		display: none; /* new */
+	}
+	#new-small {
+		display: block; /* none */
 		text-align: center;
 		position: absolute;
-		left: 0;
-		right: 0;
-		margin: auto;
-		margin-top: 6px;
-		width: 660px;
+		top: 211px;
+		z-index: 100;
+		width: 60px;
 	}
-	div.new-bookmark a {
-		font-size: 1.125em;
-		font-family: gill-sans-nova, sans-serif;
-		font-style: normal;
-		font-weight: 400;
-		text-decoration: none;
+	#new-small a {
+		display: block;
+		font-size: 16px;
 		color: #307cfb;
 		background-color: #fff;
+		padding-top: 5px;
+		padding-left: 14px;
+		padding-right: 12px;
+		width: auto;
+		float: left;
 		border: 1px solid #307cfb;
-		display: block;
-		padding: 5px 10px;
-		text-align: center;
-		width: 110px;
-		transition: color 0.4s, background-color 0.4s, border 0.4s;
+		transition: color 0.4s, background-color 0.4s, border 0.4s; 
 	}
-	div.new-bookmark a:hover {
+	#new-small a:hover {
 		text-decoration: none;
 		color: #fff;
 		background-color: #f15a24;
@@ -1550,78 +1586,42 @@ SCREEN SIZE: 320px-767px (smartphones)
 
 	/*** search features ***/
 	#search-main-container {
-		width: 700px;
-		margin: auto;
-		margin-bottom: 20px;
-		overflow: auto;
+		width: 282px; /* 700px */
 	}
 	#search-container {
-		float: right;
-		margin-right: 40px;
+		float: none; /* right */
+		margin-right: 0; /* 40px */
+		margin-bottom: 0; /* new */
 	}
 	#show-all-container {
-		float: left;
-		margin-left: 40px;
+		float: none; /* left */
+		margin-left: 0; /* 40px */
+		width: 282px; /* new */
+		overflow: auto; /* new */
+		padding-top: 0; /* new */
 	}
 	#search-container form {
-		margin-top: 20px;
-		width: 450px;
-		border: none;
+		float: none; /* new */
+		margin: auto; /* new */
+		margin-top: 20px; /* overrides auto */
+		width: 282px; /* 450px */
+		padding: 0; /* new */
 	}
 	#search-container form input {
-		width: 280px;
-		height: 30px;
-		float: left;
-		margin-top: 3px;
-		margin-left: 0;
-		border-radius: 0;
-		font-size: 1em;
-		font-family: Roboto, Arial, sans-serif;	
-		padding-left: 5px;
-		padding-right: 5px;
-		background-color: #fff;
-		color: #000;
-		border: 1px solid #307cfb;
-		transition: border 0.4s;
-	}
-	#search-container form input:focus {
-		outline: none;
-		border: 1px solid #f15a24;
+		width: 210px; /* 280px */
 	}
 	#search-container form #search-large-medium {
 		display: none; /* block */
-		/*font-size: 1.125em;
-		font-family: gill-sans-nova, sans-serif;
-		font-style: normal;
-		font-weight: 400;
-		color: #307cfb;
-		background-color: #fff;
-		padding: 5px 10px;
-		width: 110px;
-		float: left;
-		margin-left: 20px;
-		border: 1px solid #307cfb;
-		transition: color 0.4s, background-color 0.4s, border 0.4s; */
 	}
-	/*#search-container form #search-large-medium:hover {
-		color: #fff;
-		background-color: #f15a24;
-		border: 1px solid #f15a24;
-		cursor: pointer;
-	}*/
 	#search-container form #search-small {
 		display: block; /* none */
 		font-size: 16px;
-		/*font-family: gill-sans-nova, sans-serif;
-		font-style: normal;
-		font-weight: 400;*/
 		color: #307cfb;
 		background-color: #fff;
-		/*padding: 5px 10px;*/
 		padding-top: 5px;
 		padding-left: 14px;
 		padding-right: 12px;
-		width: auto; /*width: 110px;*/
+		width: auto;
 		float: left;
 		margin-left: 20px;
 		border: 1px solid #307cfb;
@@ -1634,86 +1634,206 @@ SCREEN SIZE: 320px-767px (smartphones)
 		cursor: pointer;
 	}
 	#show-all-container form {
-		margin-top: 20px;
-		width: 150px;
-		border: none;
+		margin-top: 0; /* 20px */
+		position: relative; /* new */
+		float: right; /* new */ 
+		top: -5px; /* new */
+		padding-right: 0; /* new */
 	}
 	#show-all-container form button {
-		display: block;
-		font-size: 1.125em;
-		font-family: gill-sans-nova, sans-serif;
-		font-style: normal;
-		font-weight: 400;
-		color: #307cfb;
-		background-color: #fff;
-		padding: 5px 10px;
-		width: 120px;
-		float: right;
-		margin-left: 20px;
-		border: 1px solid #307cfb;
-		transition: color 0.4s, background-color 0.4s, border 0.4s; 
-	}
-	#show-all-container form button:hover {
-		color: #fff;
-		background-color: #f15a24;
-		border: 1px solid #f15a24;
-		cursor: pointer;
+		font-size: 1em; /* 1.125em */
+		padding: 3px 7px; /* 5px 10px */
+		width: 100px; /* 120px */
+		margin-left: 0; /* 20px */
+		margin-right: 0; /* new */
 	}
 
 	/*** my bookmarks ***/
 	#my-bookmarks-main-container {
-		width: 700px;
+		width: 90%; /* 700px */
+		min-width: 300px; /* 700px */
+		max-width: 400px; /* new */
+		margin: auto; /* new */
 	}
 	#my-bookmarks-main-container > div {
-		width: 600px;
-		overflow: auto;
-		margin: auto;
-		margin-bottom: 20px;
-		margin-right: 55px;
-		padding: 30px;
-		border: 1px solid #307cfb;
+		width: 90%; /* 600px */
+		min-width: 280px; /* new */
+		max-width: 400px; /* new */
+		margin: auto; /* overrindes medium screens */
+		margin-top: 30px; /* 40px */
+		padding-top: 25px; /* 20px */
+		padding-bottom: 25px; /* 30px */
+		padding-left: 25px; /* new */
+		padding-right: 25px; /* new */
 	}
-	#my-bookmarks-main-container div div:nth-child(1) {
-		width: auto;
-		overflow: auto;
-	}
-	#my-bookmarks-main-container div div:nth-child(1) p {
-		float: left;
-		margin-bottom: 20px;
+	#my-bookmarks-main-container > div:nth-child(1) {
+		margin-top: 20px; /* new */
 	}
 	#my-bookmarks-main-container div div:nth-child(1) p:nth-child(1), #my-bookmarks-main-container div div:nth-child(1) p:nth-child(3) {
-		width: 130px;
+		width: 100%; /* 130px */
+		margin-bottom: 7px; /* new */
 	}
 	#my-bookmarks-main-container div div:nth-child(1) p:nth-child(2), #my-bookmarks-main-container div div:nth-child(1) p:nth-child(4) {
-		font-size: 1em;
-		font-family: Roboto, Arial, sans-serif;	
-		color: #000;
-		width: 400px;
+		width: 100%; /* 400px */
 	}
-	#my-bookmarks-main-container div div:nth-child(1) p:nth-child(4) a {
-		text-decoration: none;
-		color: #307cfb;
-		transition: color 0.4s; 
+	#my-bookmarks-main-container div #view-edit-delete-large-medium {
+		display: none; /* new */
 	}
-	#my-bookmarks-main-container div div:nth-child(1) p:nth-child(4) a:hover {
-		text-decoration: none;
-		color: #f15a24; 
-	}
-	#my-bookmarks-main-container div div:nth-child(2) {
-		margin-top: 0;
-		width: auto;
+	#my-bookmarks-main-container div #view-edit-delete-small {
+		display: block; /* none */
+		margin: auto;
+		margin-top: 10px;
+		width: 220px;
 		overflow: auto;
+		padding: 0;
 	}
-	#my-bookmarks-main-container div div:nth-child(2) form {
-		width: 179px;
+	#my-bookmarks-main-container div #view-edit-delete-small form {
+		width: 33.3%;
+		min-width: 50px;
+    	max-width: 400px;
 		height: auto;
 		float: left;
 		margin-bottom: 0;
 		margin-top: 0;
 		border: none;
 		padding-bottom: 0;
+		padding: 0;
 	}
-	#my-bookmarks-main-container div div:nth-child(2) form button {
+	#my-bookmarks-main-container div #view-edit-delete-small form button {
+		display: block;
+		font-size: 16px;
+		color: #307cfb;
+		background-color: #fff;
+		padding-top: 5px;
+		padding-left: 14px;
+		padding-right: 12px;
+		width: auto;
+		float: left;
+		margin-left: 0;
+		border: 1px solid #307cfb;
+		transition: color 0.4s, background-color 0.4s, border 0.4s; 
+	}
+	#my-bookmarks-main-container div #view-edit-delete-small form button:hover {
+		color: #fff;
+		background-color: #f15a24;
+		border: 1px solid #f15a24;
+		cursor: pointer;
+	}
+	#my-bookmarks-main-container div #view-edit-delete-small form:nth-child(1) button {
+		margin-left: 0;
+	}
+	#my-bookmarks-main-container div #view-edit-delete-small form:nth-child(2) button {
+		margin: auto;
+		float: none;
+	}
+	#my-bookmarks-main-container div #view-edit-delete-small form:nth-child(3) button {
+		margin-right: 0;
+		float: right;
+	}
+
+	/***************************************
+	********** view_bookmark.html **********
+	***************************************/
+
+	#view-bookmark {
+		width: 90%; /* 600px */
+		min-width: 280px; /* new */
+		max-width: 400px; /* new */
+		padding: 25px; /* 30px */
+		padding-bottom: 25px; /* 10px */
+		margin-top: 30px; /* 40px */
+	}
+	#view-bookmark p {
+		float: none; /* left */
+		margin-bottom: 7px; /* 20px */
+		width: 100%; /* new */
+	}
+	#view-bookmark p:nth-child(1), #view-bookmark p:nth-child(3), #view-bookmark p:nth-child(5), #view-bookmark p:nth-child(7) {
+		width: 100%; /* 130px */
+	}
+	#view-bookmark p:nth-child(2), #view-bookmark p:nth-child(4), #view-bookmark p:nth-child(6), #view-bookmark p:nth-child(8) {
+		width: 100%; /* 400px */
+		margin-bottom: 22px; /* new */
+	}
+	#view-bookmark p:nth-child(8) {
+		margin-bottom: 0; /* new */
+	}
+
+	/***************************************
+	********* delete_bookmark.html *********
+	***************************************/
+
+	#delete-bookmark {
+		width: 90%; /* 600px */
+		min-width: 280px; /* new */
+		max-width: 400px; /* new */
+		overflow: auto;
+		margin: auto;
+		margin-top: 30px; /* 40px */
+		margin-bottom: 20px;
+		padding: 25px; /* 30px */
+		padding-bottom: 25px; /* 10px */
+		border: 1px solid #307cfb;
+	}
+	#delete-bookmark p {
+		float: none; /* left */
+		margin-bottom: 7px; /* 20px */
+		width: 100%; /* new */
+	}
+	#delete-bookmark p:nth-child(1), #delete-bookmark p:nth-child(3), #delete-bookmark p:nth-child(5), #delete-bookmark p:nth-child(7) {
+		width: 100%; /* 130px */
+		color: #000;
+	}
+	#delete-bookmark p:nth-child(2), #delete-bookmark p:nth-child(4), #delete-bookmark p:nth-child(6), #delete-bookmark p:nth-child(8) {
+		font-size: 1em;
+		font-family: Roboto, Arial, sans-serif;	
+		color: #000;
+		width: 100%; /* 400px */
+		margin-bottom: 22px; /* new */
+	}
+	#delete-bookmark p:nth-child(6) a {
+		text-decoration: none;
+		color: #307cfb;
+		transition: color 0.4s; 
+	}
+	#delete-bookmark p:nth-child(6) a:hover {
+		text-decoration: none;
+		color: #f15a24; 
+	}
+	#delete-bookmark p:nth-child(8) {
+		margin-bottom: 0; /* new */
+	}
+
+
+
+
+	#delete-bookmark-question {
+		width: 90%; /* 600px */
+		min-width: 280px; /* new */
+		max-width: 400px; /* new */
+		height: auto;
+		overflow: auto;
+		margin: auto;
+		margin-top: 40px; /* 50px */
+	}
+	#delete-bookmark-question > p, #delete-bookmark-question > form, #delete-bookmark-question > div.return-button {
+		float: left;
+		text-align: center;
+	}
+	#delete-bookmark-question > p {
+		width: 100%;
+	}
+	#delete-bookmark-question > form, #delete-bookmark-question > div.return-button {
+		width: 50%;
+		margin-top: 30px;
+	}
+	#delete-bookmark-question > form {
+		padding: 0;
+		border: none;
+	}
+	#delete-bookmark-question > form button {
+		margin: auto;
+		margin-left: 165px;
 		display: block;
 		font-size: 1.125em;
 		font-family: gill-sans-nova, sans-serif;
@@ -1724,24 +1844,44 @@ SCREEN SIZE: 320px-767px (smartphones)
 		padding: 5px 10px;
 		width: 110px;
 		border: 1px solid #307cfb;
-		margin-bottom: 0;
-		transition: color 0.4s, background-color 0.4s, border 0.4s;
+		transition: color 0.4s, background-color 0.4s, border 0.4s; 
 	}
-	#my-bookmarks-main-container div div:nth-child(2) form button:hover {
+	#delete-bookmark-question > form button:hover {
 		color: #fff;
 		background-color: #f15a24;
 		border: 1px solid #f15a24;
 		cursor: pointer;
 	}
-	#my-bookmarks-main-container div div:nth-child(2) form:nth-child(1) button {
-		margin-left: 40px;
+	#delete-bookmark-question > div.return-button a {
+		margin-right: 165px;
 	}
-	#my-bookmarks-main-container div div:nth-child(2) form:nth-child(2) button {
-		margin: auto;
+
+	/***************************************
+	************* account.html *************
+	***************************************/
+
+	#account {
+		width: 90%; /* 490px */
+		min-width: 280px; /* new */
+		max-width: 400px; /* new */
+		margin-top: 30px; /* 40px */
+		padding: 25px; /* 30px */
+		padding-bottom: 25px; /* 10px */
 	}
-	#my-bookmarks-main-container div div:nth-child(2) form:nth-child(3) button {
-		margin-right: 40px;
-		float: right;
+	#account p {
+		float: none; /* left */
+		margin-bottom: 7px; /* 20px */
+		width: 100%; /* new */
+	}
+	#account p:nth-child(1), #account p:nth-child(3), #account p:nth-child(5) {
+		width: 100%; /* 150px */
+	}
+	#account p:nth-child(2), #account p:nth-child(4), #account p:nth-child(6) {
+		width: 100%; /* 270px */
+		margin-bottom: 22px; /* new */
+	}
+	#account p:nth-child(6) {
+		margin-bottom: 0; /* new */
 	}
 
 	/***************************************
