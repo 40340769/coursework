@@ -4,6 +4,8 @@
 
 {% block content %}
 	<h1>DELETE BOOKMARK</h1>
+
+	<!-- Details of particular bookmark (start) -->
 	<div id="delete-bookmark">
 		<p>NAME:</p>
 		<p>{{ bookmark_info[0][1] }}</p>
@@ -14,6 +16,9 @@
 		<p>NOTES:</p>
 		<p>{{ bookmark_info[0][4] }}</p>
 	</div>
+	<!-- Details of particular bookmark (end) -->
+
+	<!-- Section for double-checking if user really wants to delete particular bookmark (start) -->
 	<div id="delete-bookmark-question">
 		<p>Are you sure you want to delete this bookmark?</p>
 		<form method="POST">
@@ -25,4 +30,5 @@
 			<a href="/my-bookmarks">NO</a>
 		</div>
 	</div>
+	<!-- Section for double-checking if user really wants to delete particular bookmark (end) -->
 {% endblock %}

@@ -4,21 +4,26 @@
 
 {% block content %}
 	<h1>EDIT BOOKMARK</h1>
-		{% with messages = get_flashed_messages(with_categories=true) %} 
-			{% if messages %}
-				{% for category, message in messages %}
-					{% if category == 'error' %}
-						<div class="flash-error">
-							{{ message }}
-						</div>
-					{% elif category == 'success' %}
-						<div class="flash-success">
-							{{ message }}
-						</div>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-		{% endwith %}
+
+	<!-- Section for displaying flash messages (start) -->
+	{% with messages = get_flashed_messages(with_categories=true) %} 
+		{% if messages %}
+			{% for category, message in messages %}
+				{% if category == 'error' %}
+					<div class="flash-error">
+						{{ message }}
+					</div>
+				{% elif category == 'success' %}
+					<div class="flash-success">
+						{{ message }}
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<!-- Section for displaying flash messages (end) -->
+
+	<!-- Bookmark's edit form (start) -->
 	<form method="POST" autocomplete="off">
 		<div>
 			<label for="name">NAME:</label>
@@ -41,7 +46,11 @@
 			<input type="hidden" name="hidden_bookmark_id" value="{{ bookmark_info[0][0] }}" />
 		</div>
 	</form>
+	<!-- Bookmark's edit form (end) -->
+
+	<!-- "RETURN" button (My Bookmarks page) (start)-->
 	<div class="return-button">
 		<a href="/my-bookmarks">RETURN</a>
 	</div>
+	<!-- "RETURN" button (My Bookmarks page) (end) -->
 {% endblock %}

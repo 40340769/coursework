@@ -4,6 +4,8 @@
 
 {% block content %}
 	<h1>VIEW BOOKMARK</h1>
+
+	<!-- Details of particular bookmark (start) -->
 	<div id="view-bookmark">
 		<p>NAME:</p>
 		<p>{{ bookmark_info[0][1] }}</p>
@@ -14,7 +16,11 @@
 		<p>NOTES:</p>
 		<p>{{ bookmark_info[0][4] }}</p>
 	</div>
+	<!-- Details of particular bookmark (end) -->
+
+	<!-- "RETURN" button (My Bookmarks page) (start)-->
 	<div class="return-button">
 		<a href="/my-bookmarks">RETURN</a>
 	</div>
+	<!-- "RETURN" button (My Bookmarks page) (end)-->
 {% endblock %}

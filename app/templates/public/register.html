@@ -4,21 +4,26 @@
 
 {% block content %}
 	<h1>REGISTER</h1>
-		{% with messages = get_flashed_messages(with_categories=true) %} 
-			{% if messages %}
-				{% for category, message in messages %}
-					{% if category == 'error' %}
-						<div class="flash-error">
-							{{ message }}
-						</div>
-					{% elif category == 'success' %}
-						<div class="flash-success">
-							{{ message }}
-						</div>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-		{% endwith %}
+
+	<!-- Section for displaying flash messages (start) -->
+	{% with messages = get_flashed_messages(with_categories=true) %} 
+		{% if messages %}
+			{% for category, message in messages %}
+				{% if category == 'error' %}
+					<div class="flash-error">
+						{{ message }}
+					</div>
+				{% elif category == 'success' %}
+					<div class="flash-success">
+						{{ message }}
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<!-- Section for displaying flash messages (end) -->
+
+	<!-- Register form (start) -->
 	<form method="POST" autocomplete="off">
 		<div>
 			<label for="email">EMAIL:</label>
@@ -44,4 +49,5 @@
 			<button type="submit">REGISTER</button>
 		</div>
 	</form>
+	<!-- Register form (end) -->
 {% endblock %}

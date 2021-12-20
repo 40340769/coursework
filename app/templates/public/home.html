@@ -5,12 +5,20 @@
 {% block content %}
 	<h1>THE BOOKMARK UNIVERSE...</h1>
 	<h2>Find and never forget.</h2>
+
+	<!-- Animated Strainer logo (start) -->
 	<div class="animated">
 		<img id="animated-background" src="static/images/background.png" />
 		<img id="animated-front" src="static/images/front.png" />
 	</div>
+	<!-- Animated Strainer logo (end) -->
+
+	<!-- "ABOUT" (About page) and "JOIN" (Register page) buttons, visible publicly (user is not logged in) (start) -->
 	<div class="buttons-home">
-		<a href="/about" title="About page">ABOUT</a>
-		<a href="/register" title="Register page">JOIN</a>
+		{% if (session['logged'] != True) %}
+			<a href="/about" title="About page">ABOUT</a>
+			<a href="/register" title="Register page">JOIN</a>
+		{% endif %}
 	</div>
+	<!-- "ABOUT" (About page) and "JOIN" (Register page) buttons, visible publicly (user is not logged in) (end) -->
 {% endblock %}

@@ -4,6 +4,8 @@
 
 {% block content %}
 	<h1>ACCOUNT</h1>
+
+	<!-- Details of particular user (start) -->
 	<div id="account">
 		<p>EMAIL:</p>
 		<p>{{ user_info[0][1] }}</p>
@@ -12,4 +14,5 @@
 		<p>LAST NAME:</p>
 		<p>{{ user_info[0][3] }}</p>
 	</div>
+	<!-- Details of particular user (end) -->
 {% endblock %}

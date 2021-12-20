@@ -6,6 +6,7 @@ import sqlite3
 
 db_location = 'app/var/strainer.db'
 
+# Creating app
 def create_app():
 	app = Flask(__name__)
 	
@@ -23,6 +24,7 @@ def create_app():
 
 	return app
 
+# Creating "users" table in the database
 def create_db_users():
 	conn = sqlite3.connect(db_location)
 	cursor = conn.cursor()
@@ -37,6 +39,7 @@ def create_db_users():
 	conn.commit()
 	conn.close()
 
+# Creating "bookmarks" table in the database
 def create_db_bookmarks():
 	conn = sqlite3.connect(db_location)
 	cursor = conn.cursor()
@@ -53,6 +56,7 @@ def create_db_bookmarks():
 	conn.commit()
 	conn.close()
 
+# Checking if user is logged in
 def requires_login(f):
     @wraps(f)
     def decorated(*args,**kwargs):

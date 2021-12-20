@@ -4,21 +4,26 @@
 
 {% block content %}
 	<h1>CONTACT US</h1>
-		{% with messages = get_flashed_messages(with_categories=true) %} 
-			{% if messages %}
-				{% for category, message in messages %}
-					{% if category == 'error' %}
-						<div class="flash-error">
-							{{ message }}
-						</div>
-					{% elif category == 'success' %}
-						<div class="flash-success">
-							{{ message }}
-						</div>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-		{% endwith %}
+
+	<!-- Section for displaying flash messages (start) -->
+	{% with messages = get_flashed_messages(with_categories=true) %} 
+		{% if messages %}
+			{% for category, message in messages %}
+				{% if category == 'error' %}
+					<div class="flash-error">
+						{{ message }}
+					</div>
+				{% elif category == 'success' %}
+					<div class="flash-success">
+						{{ message }}
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<!-- Section for displaying flash messages (end) -->
+
+	<!-- Contact form (start) -->
 	<form method="POST" autocomplete="off">
 		<div>
 			<label for="firstName">FIRST NAME:</label>
@@ -40,4 +45,5 @@
 			<button type="submit">SEND</button>
 		</div>
 	</form>
+	<!-- Contact form (end) -->
 {% endblock %}

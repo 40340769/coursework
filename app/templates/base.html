@@ -10,21 +10,23 @@
         <!-- Fonts - Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
         <!-- Icons - Google Material Icons -->
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
         <!-- Icons - Font Awesome -->
         <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
 		<title>{% block title %}Base{% endblock %}</title>
 	</head>
 	<body>
+		<!-- Main navigation for large and medium screens (start) -->
 		<nav id="nav-large-medium">
 			<div>
 				{% if (session['logged'] != True) %}
+				<!-- Navigation links for large and medium screens, visible publicly (user is not logged in) -->
 					<a href="/" title="Home page"><img src="static/images/logo.png" /></a>
 					<a class="link-unlogged" href="/about" title="About page">ABOUT</a>
 					<a class="button-unlogged" href="/login" title="Login page">LOGIN</a>
 					<a class="button-unlogged" href="/register" title="Register page">REGISTER</a>
 				{% else %}
+				<!-- Navigation links for large and medium screens, visible only for logged in users -->
 					<a href="/" title="Home page"><img id="logo-top" src="static/images/logo.png" /></a>
 					<a class="link-logged" href="/my-bookmarks" title="My Bookmarks page">MY BOOKMARKS</a>
 					<a class="link-logged" href="/account" title="Account page">ACCOUNT</a>
@@ -32,14 +34,19 @@
 				{% endif %}
 			</div>
 		</nav>
+		<!-- Main navigation for large and medium screens (end) -->
+
+		<!-- Main navigation for small screens (start) -->
 		<nav id="nav-small">
 			<div>
 				{% if (session['logged'] != True) %}
+				<!-- Navigation links for small screens, visible publicly (user is not logged in) -->
 					<a href="/" title="Home page"><img src="static/images/logo.png" /></a>
 					<a class="link-unlogged" href="/about" title="About page"><span class="material-icons-outlined">info</span></a>
 					<a class="button-unlogged" href="/register" title="Register page"><span class="material-icons-outlined">person_add_alt</span></a>
 					<a class="button-unlogged" href="/login" title="Login page"><span class="material-icons-outlined">login</span></a>
 				{% else %}
+				<!-- Navigation links for small screens, visible only for logged in users -->
 					<a href="/" title="Home page"><img id="logo-top" src="static/images/logo.png" /></a>
 					<a class="link-logged" href="/my-bookmarks" title="My Bookmarks page"><span class="material-icons-outlined">star_outline</span></a>
 					<a class="link-logged" href="/account" title="Account page"><span class="material-icons-outlined">perm_identity</span></a>
@@ -47,11 +54,17 @@
 				{% endif %}
 			</div>
 		</nav>
+		<!-- Main navigation for small screens (end) -->
+
+		<!-- Main content of the page (start) -->
 		<div id="main-content">
 			<div>
 				{% block content %}Base{% endblock %}
 			</div>
 		</div>
+		<!-- Main content of the page (end) -->
+
+		<!-- Footer (start) -->
 		<footer>
 			<div>
 				<div>
@@ -69,5 +82,6 @@
 				</div>
 			</div>
 		</footer>
+		<!-- Footer (end) -->
 	</body>
 </html>

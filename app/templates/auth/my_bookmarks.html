@@ -3,26 +3,35 @@
 {% block title %}My Bookmarks{% endblock %}
 
 {% block content %}
+	<!-- "NEW" button (New Bookmark page) (start)-->
 	<div id="new-large-medium">
 		<a href="/new-bookmark">NEW</a>
 	</div>
+	<!-- "NEW" button (New Bookmark page) (end)-->
+
 	<h1 id="my-bookmarks-heading">MY BOOKMARKS</h1>
-		{% with messages = get_flashed_messages(with_categories=true) %} 
-			{% if messages %}
-				{% for category, message in messages %}
-					{% if category == 'error' %}
-						<div class="flash-error-my-bookmarks-main">
-							{{ message }}
-						</div>
-					{% elif category == 'success' %}
-						<div class="flash-success-my-bookmarks-main">
-							{{ message }}
-						</div>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-		{% endwith %}
+
+	<!-- Section for displaying flash messages (start) -->
+	{% with messages = get_flashed_messages(with_categories=true) %} 
+		{% if messages %}
+			{% for category, message in messages %}
+				{% if category == 'error' %}
+					<div class="flash-error-my-bookmarks-main">
+						{{ message }}
+					</div>
+				{% elif category == 'success' %}
+					<div class="flash-success-my-bookmarks-main">
+						{{ message }}
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<!-- Section for displaying flash messages (end) -->
+
+	<!-- Section for searching bookmarks (start) -->
 	<div id="search-main-container">
+		<!-- Search input field (start) -->
 		<div id="search-container">
 			<form method="POST" autocomplete="off">
 		        <input title="Search form - main navigation menu" type="text" name="search_term" placeholder="Search..." />
@@ -30,9 +39,9 @@
 		        <button id="search-small" type="submit"><span class="material-icons-outlined">search</span></button>
 		        <input type="hidden" name="search_bookmark" value="search_bookmark" />
 		    </form>
-		    
-
 		</div>
+		<!-- Search input field (end) -->
+		<!-- "SHOW ALL" button (start) -->
 		<div id="show-all-container">
 			<div id="new-small">
 				<a href="/new-bookmark"><span class="material-icons-outlined">add</span></a>
@@ -42,23 +51,28 @@
 		        <input type="hidden" name="show_all_bookmarks" value="show_all_bookmarks" />
 		    </form>
 		</div>
-			{% with messages = get_flashed_messages(with_categories=true) %} 
-				{% if messages %}
-					{% for category, message in messages %}
-						{% if category == 'search_error' %}
-							<div class="flash-error-my-bookmarks">
-								{{ message }}
-							</div>
-						{% elif category == 'search_success' %}
-							<div class="flash-success-my-bookmarks">
-								{{ message }}
-							</div>
-						{% endif %}
-					{% endfor %}
-				{% endif %}
-			{% endwith %}
-
+		<!-- "SHOW ALL" button (end) -->
+		<!-- Section for displaying flash messages related to search (start) -->
+		{% with messages = get_flashed_messages(with_categories=true) %} 
+			{% if messages %}
+				{% for category, message in messages %}
+					{% if category == 'search_error' %}
+						<div class="flash-error-my-bookmarks">
+							{{ message }}
+						</div>
+					{% elif category == 'search_success' %}
+						<div class="flash-success-my-bookmarks">
+							{{ message }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<!-- Section for displaying flash messages related to search (end) -->
 	</div>
+	<!-- Section for searching bookmarks (end) -->
+
+	<!-- Section for displaying user's bookmarks (start) -->
 	<div id="my-bookmarks-main-container">
 	{% for user_bookmark in user_bookmarks %}
 		<div>
@@ -105,4 +119,5 @@
 		</div>
 	{% endfor %}
 	</div>
+	<!-- Section for displaying user's bookmarks (end) -->
 {% endblock %}
