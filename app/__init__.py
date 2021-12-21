@@ -13,8 +13,8 @@ def create_app():
 	secret_key_bin = urandom(24)
 	secret_key_str = b64encode(secret_key_bin).decode('utf-8')
 	app.config['SECRET_KEY'] = secret_key_str
-	app.config['DEBUG'] = True
-	app.config['ENV'] = 'development'
+	app.config['DEBUG'] = False
+	app.config['ENV'] = 'production'
 
 	from .views_public import views_public
 	from .views_auth import views_auth
